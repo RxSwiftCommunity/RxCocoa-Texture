@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'RxCocoa-Texture_Example' do
+  pod 'RxCocoa-Texture', :path => '../'
+
+  target 'RxCocoa-Texture_Tests' do
+    inherit! :search_paths
+
+    pod 'Quick', '~> 1.2.0'
+    pod 'Nimble', '~> 7.0.2'
+  end
+end

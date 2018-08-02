@@ -8,7 +8,8 @@
 ## Notice
 - [GTTexture+RxExtension](https://github.com/GeekTree0101/GTTexture-RxExtension) is deprecated
 - ASButtonNode url image downloader no more support, try to use ASNetworkImageNode with ASTextNode
-- Texture 2.7 doesn't support cocoapods, but 2.7.1 hotfix version will coming soon.
+- Texture 2.7 doesn't support cocoapods (follow Installation guide), but 2.7.1 hotfix version will coming soon. 
+- Texture 2.7 has some layout issue (https://github.com/TextureGroup/Texture/issues/977)
 
 > ### Your Contributions always welcome welcome!.
 
@@ -139,11 +140,11 @@ it, simply add the following line to your Podfile:
 pod 'RxCocoa-Texture'
 ```
 
-## Caution
-This library has been migrated to Texture 2.7.
-When Rx subscribe logic moves from initialization to didLoad method. I no longer faced this problem.
-When using RxSwift / RxCocoa, it is safe to subscribe from the didLoad method.
-https://github.com/TextureGroup/Texture/issues/977
+#### swift 4.x & Texture 2.7 Only
+
+```ruby
+pod 'RxCocoa-Texture', :git => 'https://github.com/GeekTree0101/RxCocoa-Texture.git', :branch => 'Texture-2.7'
+```
 
 ## Author
 

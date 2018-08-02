@@ -1,0 +1,6 @@
+framework module RxCocoa_Texture {
+  umbrella header "RxCocoa-Texture-umbrella.h"
+
+  export *
+  module * { export * }
+}

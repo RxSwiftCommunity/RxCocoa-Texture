@@ -8,11 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		9B0E1603210DA3CE0013EC86 /* ASImageNode+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E15FC210DA33F0013EC86 /* ASImageNode+RxSpec.swift */; };
+		9B0E1605210DA3E30013EC86 /* ASButtonNode+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E15F7210DA33F0013EC86 /* ASButtonNode+RxSpec.swift */; };
+		9B0E1606210DA3E50013EC86 /* ASControlNode+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E15F8210DA33F0013EC86 /* ASControlNode+RxSpec.swift */; };
+		9B0E1607210DA3E80013EC86 /* ASEditableTextNode+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E15FA210DA33F0013EC86 /* ASEditableTextNode+RxSpec.swift */; };
+		9B0E1608210DA3ED0013EC86 /* ASNetworkImageNode+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E15FB210DA33F0013EC86 /* ASNetworkImageNode+RxSpec.swift */; };
+		9B0E1609210DA3F00013EC86 /* ASTextNode+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E15F9210DA33F0013EC86 /* ASTextNode+RxSpec.swift */; };
+		9B0E161D210DAD550013EC86 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E161B210DAD540013EC86 /* RepositoryViewController.swift */; };
+		9B0E1622210DAD6E0013EC86 /* RepoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1620210DAD6C0013EC86 /* RepoProvider.swift */; };
+		9B0E1626210DAD7B0013EC86 /* Decoder+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1625210DAD7B0013EC86 /* Decoder+extension.swift */; };
+		9B0E162A210DAD890013EC86 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1628210DAD880013EC86 /* Repository.swift */; };
+		9B0E162B210DAD890013EC86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1629210DAD890013EC86 /* User.swift */; };
+		9B0E162F210DAD9D0013EC86 /* RepoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E162D210DAD9C0013EC86 /* RepoService.swift */; };
+		9B0E1630210DAD9D0013EC86 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E162E210DAD9D0013EC86 /* Network.swift */; };
+		9B0E1639210DADB70013EC86 /* RepositoryListCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1632210DADB50013EC86 /* RepositoryListCellNode.swift */; };
+		9B0E163A210DADB70013EC86 /* TextTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1633210DADB50013EC86 /* TextTestNode.swift */; };
+		9B0E163B210DADB70013EC86 /* NetworkImageTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1634210DADB50013EC86 /* NetworkImageTestNode.swift */; };
+		9B0E163C210DADB70013EC86 /* ButtonTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1635210DADB60013EC86 /* ButtonTestNode.swift */; };
+		9B0E163D210DADB70013EC86 /* EditableTextTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1636210DADB60013EC86 /* EditableTextTestNode.swift */; };
+		9B0E163E210DADB70013EC86 /* ImageTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1637210DADB60013EC86 /* ImageTestNode.swift */; };
+		9B0E163F210DADB70013EC86 /* ASBinderTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1638210DADB70013EC86 /* ASBinderTestNode.swift */; };
+		9B0E1642210DADCF0013EC86 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */; };
+		9B0E1644210DB2250013EC86 /* Observable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1643210DB2250013EC86 /* Observable+Extension.swift */; };
 		C2B9E94A4FCBBCFCA86BBE1B /* Pods_RxCocoa_Texture_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C467A356AD9535ACE740C9 /* Pods_RxCocoa_Texture_Tests.framework */; };
 		F77E2B9F7CE27BC62474DD2B /* Pods_RxCocoa_Texture_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64F85DE41A757B8E1C3E68C /* Pods_RxCocoa_Texture_Example.framework */; };
 /* End PBXBuildFile section */
@@ -29,23 +48,42 @@
 
 /* Begin PBXFileReference section */
 		30C467A356AD9535ACE740C9 /* Pods_RxCocoa_Texture_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxCocoa_Texture_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4850A96BAD26591DCD13654D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4850A96BAD26591DCD13654D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RxCocoa-Texture_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RxCocoa-Texture_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* RxCocoa-Texture_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxCocoa-Texture_Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		64EB5963EE48A355A0DC1490 /* RxCocoa-Texture.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "RxCocoa-Texture.podspec"; path = "../RxCocoa-Texture.podspec"; sourceTree = "<group>"; };
+		64EB5963EE48A355A0DC1490 /* RxCocoa-Texture.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "RxCocoa-Texture.podspec"; path = "../RxCocoa-Texture.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9B0E15F7210DA33F0013EC86 /* ASButtonNode+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASButtonNode+RxSpec.swift"; sourceTree = "<group>"; };
+		9B0E15F8210DA33F0013EC86 /* ASControlNode+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASControlNode+RxSpec.swift"; sourceTree = "<group>"; };
+		9B0E15F9210DA33F0013EC86 /* ASTextNode+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASTextNode+RxSpec.swift"; sourceTree = "<group>"; };
+		9B0E15FA210DA33F0013EC86 /* ASEditableTextNode+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASEditableTextNode+RxSpec.swift"; sourceTree = "<group>"; };
+		9B0E15FB210DA33F0013EC86 /* ASNetworkImageNode+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASNetworkImageNode+RxSpec.swift"; sourceTree = "<group>"; };
+		9B0E15FC210DA33F0013EC86 /* ASImageNode+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASImageNode+RxSpec.swift"; sourceTree = "<group>"; };
+		9B0E161B210DAD540013EC86 /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
+		9B0E1620210DAD6C0013EC86 /* RepoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoProvider.swift; sourceTree = "<group>"; };
+		9B0E1625210DAD7B0013EC86 /* Decoder+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decoder+extension.swift"; sourceTree = "<group>"; };
+		9B0E1628210DAD880013EC86 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		9B0E1629210DAD890013EC86 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9B0E162D210DAD9C0013EC86 /* RepoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoService.swift; sourceTree = "<group>"; };
+		9B0E162E210DAD9D0013EC86 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		9B0E1632210DADB50013EC86 /* RepositoryListCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListCellNode.swift; sourceTree = "<group>"; };
+		9B0E1633210DADB50013EC86 /* TextTestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTestNode.swift; sourceTree = "<group>"; };
+		9B0E1634210DADB50013EC86 /* NetworkImageTestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImageTestNode.swift; sourceTree = "<group>"; };
+		9B0E1635210DADB60013EC86 /* ButtonTestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTestNode.swift; sourceTree = "<group>"; };
+		9B0E1636210DADB60013EC86 /* EditableTextTestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableTextTestNode.swift; sourceTree = "<group>"; };
+		9B0E1637210DADB60013EC86 /* ImageTestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTestNode.swift; sourceTree = "<group>"; };
+		9B0E1638210DADB70013EC86 /* ASBinderTestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASBinderTestNode.swift; sourceTree = "<group>"; };
+		9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
+		9B0E1643210DB2250013EC86 /* Observable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extension.swift"; sourceTree = "<group>"; };
 		9E1C79DA561D40B89763472E /* Pods-RxCocoa-Texture_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Tests/Pods-RxCocoa-Texture_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A700DE1AE94F129E06542938 /* Pods-RxCocoa-Texture_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Example/Pods-RxCocoa-Texture_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B64F85DE41A757B8E1C3E68C /* Pods_RxCocoa_Texture_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxCocoa_Texture_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB878FDCA4BF09167F15A871 /* Pods-RxCocoa-Texture_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Tests/Pods-RxCocoa-Texture_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D34921410F2445031C571EB1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D34921410F2445031C571EB1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F4C2FBFBDA0CE9B43659AD60 /* Pods-RxCocoa-Texture_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Example/Pods-RxCocoa-Texture_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,9 +142,14 @@
 		607FACD21AFB9204008FA782 /* Example for RxCocoa-Texture */ = {
 			isa = PBXGroup;
 			children = (
+				9B0E1640210DADBE0013EC86 /* viewModels */,
+				9B0E1631210DADA50013EC86 /* nodes */,
+				9B0E162C210DAD930013EC86 /* networks */,
+				9B0E1627210DAD820013EC86 /* models */,
+				9B0E1624210DAD730013EC86 /* extensions */,
+				9B0E161F210DAD640013EC86 /* dataProvider */,
+				9B0E161A210DAD4C0013EC86 /* controllers */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -126,7 +169,12 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				9B0E15F7210DA33F0013EC86 /* ASButtonNode+RxSpec.swift */,
+				9B0E15F8210DA33F0013EC86 /* ASControlNode+RxSpec.swift */,
+				9B0E15FA210DA33F0013EC86 /* ASEditableTextNode+RxSpec.swift */,
+				9B0E15FC210DA33F0013EC86 /* ASImageNode+RxSpec.swift */,
+				9B0E15FB210DA33F0013EC86 /* ASNetworkImageNode+RxSpec.swift */,
+				9B0E15F9210DA33F0013EC86 /* ASTextNode+RxSpec.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -148,6 +196,71 @@
 				D34921410F2445031C571EB1 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		9B0E161A210DAD4C0013EC86 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B0E161B210DAD540013EC86 /* RepositoryViewController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		9B0E161F210DAD640013EC86 /* dataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				9B0E1620210DAD6C0013EC86 /* RepoProvider.swift */,
+			);
+			name = dataProvider;
+			sourceTree = "<group>";
+		};
+		9B0E1624210DAD730013EC86 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9B0E1625210DAD7B0013EC86 /* Decoder+extension.swift */,
+				9B0E1643210DB2250013EC86 /* Observable+Extension.swift */,
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
+		9B0E1627210DAD820013EC86 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				9B0E1628210DAD880013EC86 /* Repository.swift */,
+				9B0E1629210DAD890013EC86 /* User.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		9B0E162C210DAD930013EC86 /* networks */ = {
+			isa = PBXGroup;
+			children = (
+				9B0E162E210DAD9D0013EC86 /* Network.swift */,
+				9B0E162D210DAD9C0013EC86 /* RepoService.swift */,
+			);
+			name = networks;
+			sourceTree = "<group>";
+		};
+		9B0E1631210DADA50013EC86 /* nodes */ = {
+			isa = PBXGroup;
+			children = (
+				9B0E1638210DADB70013EC86 /* ASBinderTestNode.swift */,
+				9B0E1635210DADB60013EC86 /* ButtonTestNode.swift */,
+				9B0E1636210DADB60013EC86 /* EditableTextTestNode.swift */,
+				9B0E1637210DADB60013EC86 /* ImageTestNode.swift */,
+				9B0E1634210DADB50013EC86 /* NetworkImageTestNode.swift */,
+				9B0E1632210DADB50013EC86 /* RepositoryListCellNode.swift */,
+				9B0E1633210DADB50013EC86 /* TextTestNode.swift */,
+			);
+			name = nodes;
+			sourceTree = "<group>";
+		};
+		9B0E1640210DADBE0013EC86 /* viewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */,
+			);
+			name = viewModels;
 			sourceTree = "<group>";
 		};
 		DEF87B7647FEB19F408929F0 /* Frameworks */ = {
@@ -213,10 +326,13 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = JTEXWEH4CZ;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = JTEXWEH4CZ;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -246,7 +362,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -305,13 +420,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxCocoa-Texture_Tests/Pods-RxCocoa-Texture_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -325,11 +444,27 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxCocoa-Texture_Example/Pods-RxCocoa-Texture_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
+				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
+				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa-Texture/RxCocoa_Texture.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Texture/AsyncDisplayKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa_Texture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncDisplayKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -343,8 +478,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				9B0E1630210DAD9D0013EC86 /* Network.swift in Sources */,
+				9B0E162A210DAD890013EC86 /* Repository.swift in Sources */,
+				9B0E1644210DB2250013EC86 /* Observable+Extension.swift in Sources */,
+				9B0E1626210DAD7B0013EC86 /* Decoder+extension.swift in Sources */,
+				9B0E161D210DAD550013EC86 /* RepositoryViewController.swift in Sources */,
+				9B0E1639210DADB70013EC86 /* RepositoryListCellNode.swift in Sources */,
+				9B0E163F210DADB70013EC86 /* ASBinderTestNode.swift in Sources */,
+				9B0E162B210DAD890013EC86 /* User.swift in Sources */,
+				9B0E163E210DADB70013EC86 /* ImageTestNode.swift in Sources */,
+				9B0E163B210DADB70013EC86 /* NetworkImageTestNode.swift in Sources */,
+				9B0E163D210DADB70013EC86 /* EditableTextTestNode.swift in Sources */,
+				9B0E163A210DADB70013EC86 /* TextTestNode.swift in Sources */,
+				9B0E162F210DAD9D0013EC86 /* RepoService.swift in Sources */,
+				9B0E1642210DADCF0013EC86 /* RepositoryViewModel.swift in Sources */,
+				9B0E1622210DAD6E0013EC86 /* RepoProvider.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				9B0E163C210DADB70013EC86 /* ButtonTestNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +502,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				9B0E1607210DA3E80013EC86 /* ASEditableTextNode+RxSpec.swift in Sources */,
+				9B0E1606210DA3E50013EC86 /* ASControlNode+RxSpec.swift in Sources */,
+				9B0E1603210DA3CE0013EC86 /* ASImageNode+RxSpec.swift in Sources */,
+				9B0E1609210DA3F00013EC86 /* ASTextNode+RxSpec.swift in Sources */,
+				9B0E1605210DA3E30013EC86 /* ASButtonNode+RxSpec.swift in Sources */,
+				9B0E1608210DA3ED0013EC86 /* ASNetworkImageNode+RxSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,14 +522,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -490,11 +637,15 @@
 			baseConfigurationReference = F4C2FBFBDA0CE9B43659AD60 /* Pods-RxCocoa-Texture_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JTEXWEH4CZ;
 				INFOPLIST_FILE = "RxCocoa-Texture/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -505,11 +656,15 @@
 			baseConfigurationReference = A700DE1AE94F129E06542938 /* Pods-RxCocoa-Texture_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JTEXWEH4CZ;
 				INFOPLIST_FILE = "RxCocoa-Texture/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -519,6 +674,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E1C79DA561D40B89763472E /* Pods-RxCocoa-Texture_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = JTEXWEH4CZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -541,6 +697,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CB878FDCA4BF09167F15A871 /* Pods-RxCocoa-Texture_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = JTEXWEH4CZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

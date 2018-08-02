@@ -1,42 +1,20 @@
-#
-# Be sure to run `pod lib lint RxCocoa-Texture.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'RxCocoa-Texture'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of RxCocoa-Texture.'
+  s.version          = '1.0.0'
+  s.summary          = 'RxCocoa Extension Library for Texture'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'This library is built on Texture with RxCocoa, RxCocoa is a framework that helps make Cocoa APIs used in iOS and OS X easier to use with reactive techniques.'
 
   s.homepage         = 'https://github.com/Geektree0101/RxCocoa-Texture'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Geektree0101' => 'h2s1880@gmail.com' }
-  s.source           = { :git => 'https://github.com/Geektree0101/RxCocoa-Texture.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/GeekTree0101/RxCocoa-Texture.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.3'
 
   s.source_files = 'RxCocoa-Texture/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'RxCocoa-Texture' => ['RxCocoa-Texture/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'RxSwift', '~> 4.0'
+  s.dependency 'RxCocoa', '~> 4.0'
+  s.dependency 'Texture', '2.6'
 end

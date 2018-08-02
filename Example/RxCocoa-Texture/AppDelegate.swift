@@ -1,9 +1,8 @@
 //
 //  AppDelegate.swift
-//  RxCocoa-Texture
 //
-//  Created by Geektree0101 on 07/29/2018.
-//  Copyright (c) 2018 Geektree0101. All rights reserved.
+//  Created by Geektree0101.
+//  Copyright(C) 2018 Geektree0101. All rights reserved.
 //
 
 import UIKit
@@ -15,7 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds) // create UIwindow
+        let viewController = RepositoryViewController()
+        let navigationController =
+            UINavigationController(rootViewController: viewController)
+        if let window = window {
+            window.rootViewController = navigationController
+            window.makeKeyAndVisible()
+        }
+        
         return true
     }
 

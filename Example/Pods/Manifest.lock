@@ -27,14 +27,14 @@ PODS:
   - RxCocoa-Texture (1.0.0):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-    - Texture (= 2.6)
+    - Texture (= 2.7)
   - RxSwift (4.2.0)
   - RxTest (4.2.0):
     - RxSwift (~> 4.0)
-  - Texture (2.6):
-    - Texture/PINRemoteImage (= 2.6)
-  - Texture/Core (2.6)
-  - Texture/PINRemoteImage (2.6):
+  - Texture (2.7):
+    - Texture/PINRemoteImage (= 2.7)
+  - Texture/Core (2.7)
+  - Texture/PINRemoteImage (2.7):
     - PINRemoteImage/iOS (= 3.0.0-beta.13)
     - PINRemoteImage/PINCache
     - Texture/Core
@@ -73,10 +73,10 @@ SPEC CHECKSUMS:
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RxAlamofire: 87a9c588541210cc3e4a1f843ccc3ecf3eb98b31
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
-  RxCocoa-Texture: f940f93675f299ed00198acd8f611e780a33e7a4
+  RxCocoa-Texture: 3dfa8d84f4f988f097bd95e986711417925855b9
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
   RxTest: 8da864c0ee47534f586ff18fb0c7e5b2f1fe5023
-  Texture: 7249074582daf75e524e59df5428b66b8e8db0e4
+  Texture: 9d7e38965cf22ccd7cd9c249dd78b3f14e70ab6c
 
 PODFILE CHECKSUM: fd67cca5a2f7a3949791f911d82a4f1d003cef8c
 

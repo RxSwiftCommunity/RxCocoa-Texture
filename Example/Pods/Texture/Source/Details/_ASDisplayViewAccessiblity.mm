@@ -65,8 +65,8 @@ static void SortAccessibilityElements(NSMutableArray *elements)
 
 @interface ASAccessibilityElement : UIAccessibilityElement<ASAccessibilityElementPositioning>
 
-@property (nonatomic, strong) ASDisplayNode *node;
-@property (nonatomic, strong) ASDisplayNode *containerNode;
+@property (nonatomic) ASDisplayNode *node;
+@property (nonatomic) ASDisplayNode *containerNode;
 
 + (ASAccessibilityElement *)accessibilityElementWithContainer:(UIView *)container node:(ASDisplayNode *)node containerNode:(ASDisplayNode *)containerNode;
 
@@ -85,7 +85,7 @@ static void SortAccessibilityElements(NSMutableArray *elements)
   accessibilityElement.accessibilityValue = node.accessibilityValue;
   accessibilityElement.accessibilityTraits = node.accessibilityTraits;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
-  if (AS_AVAILABLE_IOS(11)) {
+  if (AS_AVAILABLE_IOS_TVOS(11, 11)) {
     accessibilityElement.accessibilityAttributedLabel = node.accessibilityAttributedLabel;
     accessibilityElement.accessibilityAttributedHint = node.accessibilityAttributedHint;
     accessibilityElement.accessibilityAttributedValue = node.accessibilityAttributedValue;
@@ -107,9 +107,9 @@ static void SortAccessibilityElements(NSMutableArray *elements)
 
 @interface ASAccessibilityCustomAction : UIAccessibilityCustomAction<ASAccessibilityElementPositioning>
 
-@property (nonatomic, strong) UIView *container;
-@property (nonatomic, strong) ASDisplayNode *node;
-@property (nonatomic, strong) ASDisplayNode *containerNode;
+@property (nonatomic) UIView *container;
+@property (nonatomic) ASDisplayNode *node;
+@property (nonatomic) ASDisplayNode *containerNode;
 
 @end
 
@@ -179,7 +179,7 @@ static void CollectAccessibilityElementsForContainer(ASDisplayNode *container, _
   SortAccessibilityElements(labeledNodes);
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
-  if (AS_AVAILABLE_IOS(11)) {
+  if (AS_AVAILABLE_IOS_TVOS(11, 11)) {
     NSArray *attributedLabels = [labeledNodes valueForKey:@"accessibilityAttributedLabel"];
     NSMutableAttributedString *attributedLabel = [NSMutableAttributedString new];
     [attributedLabels enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

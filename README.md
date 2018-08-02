@@ -1,9 +1,9 @@
-![alt text](https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/resources/logo.png)
+![alt text](https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/resources/logo.png)
 
-[![CI Status](https://api.travis-ci.org/GeekTree0101/RxCocoa+Texture.svg?branch=master)](https://travis-ci.org/GeekTree0101/RxCocoa+Texture)
-[![Version](https://img.shields.io/cocoapods/v/RxCocoa+Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa+Texture)
-[![License](https://img.shields.io/cocoapods/l/RxCocoa+Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa+Texture)
-[![Platform](https://img.shields.io/cocoapods/p/RxCocoa+Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa+Texture)
+[![CI Status](https://api.travis-ci.org/GeekTree0101/RxCocoa-Texture.svg?branch=master)](https://travis-ci.org/GeekTree0101/RxCocoa-Texture)
+[![Version](https://img.shields.io/cocoapods/v/RxCocoa-Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa-Texture)
+[![License](https://img.shields.io/cocoapods/l/RxCocoa-Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa-Texture)
+[![Platform](https://img.shields.io/cocoapods/p/RxCocoa-Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa-Texture)
 
 ## Notice
 Texture 2.7 doesn't support cocoapods, but 2.7.1 hotfix version will coming soon.
@@ -22,16 +22,16 @@ ref: [Texture + RxSwift Interactive Wrapper](https://medium.com/@h2s1880/texture
 
 #### Extension
 
-- [ASButtonNode RxExtension Example](https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/Example/RxCocoa+Texture/Nodes/ButtonTestNode.swift)
+- [ASButtonNode RxExtension Example](https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/Example/RxCocoa-Texture/Nodes/ButtonTestNode.swift)
 
-- [ASImageNode RxExtension Example](https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/Example/RxCocoa+Texture/Nodes/ImageTestNode.swift)
+- [ASImageNode RxExtension Example](https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/Example/RxCocoa-Texture/Nodes/ImageTestNode.swift)
 
-- [ASNetworkImageNode RxExtension Example](https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/Example/RxCocoa+Texture/Nodes/NetworkImageTestNode.swift)
+- [ASNetworkImageNode RxExtension Example](https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/Example/RxCocoa-Texture/Nodes/NetworkImageTestNode.swift)
 
 
-- [ASTextNode RxExtension Example](https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/Example/RxCocoa+Texture/Nodes/TextTestNode.swift)
+- [ASTextNode RxExtension Example](https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/Example/RxCocoa-Texture/Nodes/TextTestNode.swift)
 
-- [ASEditableTextNode RxExtension Example](https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/Example/RxCocoa+Texture/Nodes/EditableTextTestNode.swift)
+- [ASEditableTextNode RxExtension Example](https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/Example/RxCocoa-Texture/Nodes/EditableTextTestNode.swift)
 
 - [ASScrollNode](https://github.com/ReactiveX/RxSwift/blob/master/RxCocoa/iOS/UIScrollView%2BRx.swift)
 
@@ -44,8 +44,8 @@ ref: [Texture + RxSwift Interactive Wrapper](https://medium.com/@h2s1880/texture
     <td align="center">Expectation UI</td>
   </tr>
   <tr>
-    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/resources/expect.png"></th>
-    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/resources/expect2.png"></th>
+    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/resources/expect.png"></th>
+    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/resources/expect2.png"></th>
   </tr>
 </table>
 
@@ -57,8 +57,8 @@ But, Node dosen't know that event value applied on UI before draw.
     <td align="center">Unexpectation UI</td>
   </tr>
   <tr>
-    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/resources/badcase.png"></th>
-    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/resources/badcase2.png"></th>
+    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/resources/badcase.png"></th>
+    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/resources/badcase2.png"></th>
   </tr>
 </table>
 
@@ -118,22 +118,22 @@ viewModel.desc
     <td align="center">Output UI</td>
   </tr>
   <tr>
-    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/resources/asbinder_workflow.png"></th>
-    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/resources/expect2.png"></th>
+    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/resources/asbinder_workflow.png"></th>
+    <th rowspan="9"><img src="https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/resources/expect2.png"></th>
   </tr>
 </table>
 
-- [ASBinder](https://github.com/GeekTree0101/RxCocoa+Texture/blob/master/Example/RxCocoa+Texture/ASBinderTestNode.swift)
+- [ASBinder](https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/Example/RxCocoa-Texture/ASBinderTestNode.swift)
 
 ## Installation
 
-RxCocoa+Texture is available through [CocoaPods](https://cocoapods.org). To install
+RxCocoa-Texture is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 #### swift 4.x
 
 ```ruby
-pod 'RxCocoa+Texture'
+pod 'RxCocoa-Texture'
 ```
 
 ## Caution
@@ -148,4 +148,4 @@ Geektree0101, h2s1880@gmail.com
 
 ## License
 
-RxCocoa+Texture is available under the MIT license. See the LICENSE file for more info
+RxCocoa-Texture is available under the MIT license. See the LICENSE file for more info

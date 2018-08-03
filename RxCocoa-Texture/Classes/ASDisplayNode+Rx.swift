@@ -23,4 +23,61 @@ extension Reactive where Base: ASDisplayNode {
             .map { _ in return }
             .asObservable()
     }
+    
+    public var setNeedsLayout: Binder<Void> {
+        return Binder(self.base) { node, _ in
+            node.rx_setNeedsLayout()
+        }
+    }
+}
+
+extension Reactive where Base: ASDisplayNode {
+    
+    public var didEnterPreloadState: Observable<Void> {
+        return self.methodInvoked(#selector(Base.didEnterPreloadState))
+            .map { _ in return }
+            .asObservable()
+    }
+    
+    public var didEnterDisplayState: Observable<Void> {
+        return self.methodInvoked(#selector(Base.didEnterDisplayState))
+            .map { _ in return }
+            .asObservable()
+    }
+    
+    public var didEnterVisibleState: Observable<Void> {
+        return self.methodInvoked(#selector(Base.didEnterVisibleState))
+            .map { _ in return }
+            .asObservable()
+    }
+    
+    public var didExitVisibleState: Observable<Void> {
+        return self.methodInvoked(#selector(Base.didExitVisibleState))
+            .map { _ in return }
+            .asObservable()
+    }
+    
+    public var didExitDisplayState: Observable<Void> {
+        return self.methodInvoked(#selector(Base.didExitDisplayState))
+            .map { _ in return }
+            .asObservable()
+    }
+    
+    public var didExitPreloadState: Observable<Void> {
+        return self.methodInvoked(#selector(Base.didEnterPreloadState))
+            .map { _ in return }
+            .asObservable()
+    }
+}
+
+extension ASDisplayNode {
+    public func rx_setNeedsLayout() {
+        if self.isNodeLoaded {
+            self.setNeedsLayout()
+        } else {
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
+            self.invalidateCalculatedLayout()
+        }
+    }
 }

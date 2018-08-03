@@ -6,10 +6,11 @@
 [![Platform](https://img.shields.io/cocoapods/p/RxCocoa-Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa-Texture)
 
 ## Notice
+- Create rx_setNeedsLayout for Fix RxSwift event binding & wrong constrainedSize min & max issue
+- Fix Example Github repository API queryString issue
 - [GTTexture+RxExtension](https://github.com/GeekTree0101/GTTexture-RxExtension) is deprecated
 - ASButtonNode url image downloader no more support, try to use ASNetworkImageNode with ASTextNode
-- Texture 2.7 doesn't support cocoapods (follow Installation guide), but 2.7.1 hotfix version will coming soon. 
-- Texture 2.7 has some layout issue (https://github.com/TextureGroup/Texture/issues/977)
+- Texture 2.7 doesn't support cocoapods (follow Installation guide), but 2.7.1 hotfix version will coming soon.
 
 > ### Your Contributions always welcome welcome!.
 

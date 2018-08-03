@@ -11,20 +11,21 @@ import RxCocoa
 public struct ASBinder<Value>: ASObserverType {
     public typealias E = Value
     
-    private let _binding: (Event<Value>) -> ()
+    private let _binding: (Event<Value>, ASDisplayNode?) -> ()
     
     public init<Target: AnyObject>(_ target: Target,
                                    scheduler: ImmediateSchedulerType = MainScheduler(),
                                    binding: @escaping (Target, Value) -> ()) {
         weak var weakTarget = target
         
-        _binding = { event in
+        _binding = { event, node in
             switch event {
             case .next(let element):
                 _ = scheduler.schedule(element) { element in
                     if let target = weakTarget {
                         binding(target, element)
                     }
+                    node?.rx_setNeedsLayout()
                     return Disposables.create()
                 }
             case .error(let error):
@@ -40,32 +41,11 @@ public struct ASBinder<Value>: ASObserverType {
     }
     
     public func on(_ event: Event<Value>, node: ASDisplayNode?) {
-        _binding(event)
-        
-        if node?.isNodeLoaded ?? false {
-            node?.setNeedsLayout()
-        } else {
-            /** Texture 2.7 layoutSpecThatFits constraintedSize issue
-             constrainedSize has two kind of scale CGSize (min & max)
-             But, If ASBinder bind with call `setNeedsLayout` before didLoad
-             you will got equal minSize & maxSize  value
-             maxium constraint size does not change when calling `setNeedsLayout` each time.
-             **/
-            _ = node?.rx.didLoad
-                .observeOn(ConcurrentDispatchQueueScheduler(qos: .utility))
-                .take(1)
-                .subscribe(onNext: { [weak node] _ in
-                    guard node?.isNodeLoaded ?? false else {
-                        return
-                    }
-                    DispatchQueue.main.sync { }
-                    node?.setNeedsLayout()
-                })
-        }
+        _binding(event, node)
     }
     
     public func on(_ event: Event<Value>) {
-        _binding(event)
+        _binding(event, nil)
     }
 }
 

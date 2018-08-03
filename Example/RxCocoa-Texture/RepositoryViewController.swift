@@ -6,7 +6,7 @@ import RxCocoa
 class RepositoryViewController: ASViewController<ASTableNode> {
     
     private var items: [RepositoryViewModel] = []
-    private var context: ASBatchContext?
+    private var context = ASBatchContext()
     
     let disposeBag = DisposeBag()
     
@@ -45,15 +45,13 @@ class RepositoryViewController: ASViewController<ASTableNode> {
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
             .map { $0.map { RepositoryViewModel(repository: $0) } }
             .observeOn(MainScheduler.instance)
-            .retry(3)
             .subscribe(onSuccess: { [weak self] items in
                 guard let `self` = self else { return }
                 
                 if since == nil {
                     self.items = items
                     self.node.reloadData()
-                    self.context?.completeBatchFetching(true)
-                    self.context = nil
+                    self.context.completeBatchFetching(true)
                 } else {
                     // appending is good at table performance
                     let updateIndexPaths = items.enumerated()
@@ -62,18 +60,13 @@ class RepositoryViewController: ASViewController<ASTableNode> {
                     }
                     
                     self.items.append(contentsOf: items)
-                    self.node.performBatchUpdates({
-                        self.node.insertRows(at: updateIndexPaths,
-                                                  with: .fade)
-                    }, completion: { finishied in
-                        self.context?.completeBatchFetching(finishied)
-                        self.context = nil
-                    })
+                    self.node.insertRows(at: updateIndexPaths,
+                                         with: .fade)
+                    self.context.completeBatchFetching(true)
                 }
             }, onError: { [weak self] error in
                 guard let `self` = self else { return }
-                self.context?.completeBatchFetching(true)
-                self.context = nil
+                self.context.completeBatchFetching(true)
         })
     }
 }
@@ -110,7 +103,7 @@ extension RepositoryViewController: ASTableDataSource {
 extension RepositoryViewController: ASTableDelegate {
     // block ASBatchContext active state
     func shouldBatchFetch(for tableNode: ASTableNode) -> Bool {
-        return self.context == nil
+        return !self.context.isFetching()
     }
     
     // load more

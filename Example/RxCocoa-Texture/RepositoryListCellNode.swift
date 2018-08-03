@@ -59,8 +59,7 @@ class RepositoryListCellNode: ASCellNode {
         self.automaticallyManagesSubnodes = true
         
         viewModel.profileURL
-            .bind(to: userProfileNode.rx.url,
-                  setNeedsLayout: self)
+            .bind(to: userProfileNode.rx.url)
             .disposed(by: disposeBag)
         
         viewModel.username

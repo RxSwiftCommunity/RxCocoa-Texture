@@ -31,7 +31,6 @@
 		9B0E163E210DADB70013EC86 /* ImageTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1637210DADB60013EC86 /* ImageTestNode.swift */; };
 		9B0E163F210DADB70013EC86 /* ASBinderTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1638210DADB70013EC86 /* ASBinderTestNode.swift */; };
 		9B0E1642210DADCF0013EC86 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */; };
-		9B0E1644210DB2250013EC86 /* Observable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1643210DB2250013EC86 /* Observable+Extension.swift */; };
 		C2B9E94A4FCBBCFCA86BBE1B /* Pods_RxCocoa_Texture_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C467A356AD9535ACE740C9 /* Pods_RxCocoa_Texture_Tests.framework */; };
 		F77E2B9F7CE27BC62474DD2B /* Pods_RxCocoa_Texture_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64F85DE41A757B8E1C3E68C /* Pods_RxCocoa_Texture_Example.framework */; };
 /* End PBXBuildFile section */
@@ -78,7 +77,6 @@
 		9B0E1637210DADB60013EC86 /* ImageTestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTestNode.swift; sourceTree = "<group>"; };
 		9B0E1638210DADB70013EC86 /* ASBinderTestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASBinderTestNode.swift; sourceTree = "<group>"; };
 		9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
-		9B0E1643210DB2250013EC86 /* Observable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extension.swift"; sourceTree = "<group>"; };
 		9E1C79DA561D40B89763472E /* Pods-RxCocoa-Texture_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Tests/Pods-RxCocoa-Texture_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A700DE1AE94F129E06542938 /* Pods-RxCocoa-Texture_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Example/Pods-RxCocoa-Texture_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B64F85DE41A757B8E1C3E68C /* Pods_RxCocoa_Texture_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxCocoa_Texture_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				9B0E1625210DAD7B0013EC86 /* Decoder+extension.swift */,
-				9B0E1643210DB2250013EC86 /* Observable+Extension.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -480,7 +477,6 @@
 			files = (
 				9B0E1630210DAD9D0013EC86 /* Network.swift in Sources */,
 				9B0E162A210DAD890013EC86 /* Repository.swift in Sources */,
-				9B0E1644210DB2250013EC86 /* Observable+Extension.swift in Sources */,
 				9B0E1626210DAD7B0013EC86 /* Decoder+extension.swift in Sources */,
 				9B0E161D210DAD550013EC86 /* RepositoryViewController.swift in Sources */,
 				9B0E1639210DADB70013EC86 /* RepositoryListCellNode.swift in Sources */,

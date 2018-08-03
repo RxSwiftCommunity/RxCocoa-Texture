@@ -1661,7 +1661,7 @@ static NSString * const kCellReuseIdentifier = @"_ASTableViewCell";
 
 - (ASCellNodeBlock)dataController:(ASDataController *)dataController nodeBlockAtIndexPath:(NSIndexPath *)indexPath {
   ASCellNodeBlock block = nil;
-
+    
   if (_asyncDataSourceFlags.tableNodeNodeBlockForRow) {
     if (ASTableNode *tableNode = self.tableNode) {
       block = [_asyncDataSource tableNode:tableNode nodeBlockForRowAtIndexPath:indexPath];

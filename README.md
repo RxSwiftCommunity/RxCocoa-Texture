@@ -6,11 +6,12 @@
 [![Platform](https://img.shields.io/cocoapods/p/RxCocoa-Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa-Texture)
 
 ## Notice
-- Create rx_setNeedsLayout for Fix RxSwift event binding & wrong constrainedSize min & max issue
-- Fix Example Github repository API queryString issue
-- [GTTexture+RxExtension](https://github.com/GeekTree0101/GTTexture-RxExtension) is deprecated
-- ASButtonNode url image downloader no more support, try to use ASNetworkImageNode with ASTextNode
-- Texture 2.7 doesn't support cocoapods (follow Installation guide), but 2.7.1 hotfix version will coming soon.
+- ASBinder Scheduler Changed from MainScheduler to Utility Concurrent Scheduler (18.08.06)
+- Create rx_setNeedsLayout for Fix RxSwift event binding & wrong constrainedSize min & max issue (18.08.04)
+- Fix Example Github repository API queryString issue (18.08.04)
+- [GTTexture+RxExtension](https://github.com/GeekTree0101/GTTexture-RxExtension) is deprecated (18.08.02)
+- ASButtonNode url image downloader no more support, try to use ASNetworkImageNode with ASTextNode (18.08.02)
+- Texture 2.7 doesn't support cocoapods (follow Installation guide), but 2.7.1 hotfix version will coming soon. (18.08.02)
 
 > ### Your Contributions always welcome welcome!.
 

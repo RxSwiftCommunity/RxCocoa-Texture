@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxCocoa-Texture'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'RxCocoa Extension Library for Texture'
 
   s.description      = 'This library is built on Texture with RxCocoa, RxCocoa is a framework that helps make Cocoa APIs used in iOS and OS X easier to use with reactive techniques.'

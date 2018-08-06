@@ -12,17 +12,18 @@ import UIKit
 
 extension Reactive where Base: ASDisplayNode {
     
+    public var didLoad: Observable<Void> {
+        return self.methodInvoked(#selector(Base.didLoad))
+            .map { _ in return }
+            .asObservable()
+    }
+    
     public var hide: ASBinder<Bool> {
         return ASBinder(self.base) { node, isHidden in
             node.isHidden = isHidden
         }
     }
     
-    public var didLoad: Observable<Void> {
-        return self.methodInvoked(#selector(Base.didLoad))
-            .map { _ in return }
-            .asObservable()
-    }
     
     public var setNeedsLayout: Binder<Void> {
         return Binder(self.base) { node, _ in
@@ -75,9 +76,11 @@ extension ASDisplayNode {
         if self.isNodeLoaded {
             self.setNeedsLayout()
         } else {
-            self.setNeedsLayout()
-            self.layoutIfNeeded()
-            self.invalidateCalculatedLayout()
+            ASPerformBlockOnMainThread { [weak self] () -> Void in
+                self?.setNeedsLayout()
+                self?.layoutIfNeeded()
+                self?.invalidateCalculatedLayout()
+            }
         }
     }
 }

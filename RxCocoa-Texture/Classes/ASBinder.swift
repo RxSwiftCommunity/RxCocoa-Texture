@@ -10,11 +10,11 @@ import RxCocoa
 
 public struct ASBinder<Value>: ASObserverType {
     public typealias E = Value
-    
+    typealias RenderQueueScheduler = ConcurrentDispatchQueueScheduler
     private let _binding: (Event<Value>, ASDisplayNode?) -> ()
     
     public init<Target: AnyObject>(_ target: Target,
-                                   scheduler: ImmediateSchedulerType = MainScheduler(),
+                                   scheduler: ImmediateSchedulerType = RenderQueueScheduler(qos: .utility),
                                    binding: @escaping (Target, Value) -> ()) {
         weak var weakTarget = target
         

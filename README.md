@@ -133,7 +133,7 @@ viewModel.desc
 
 #### ASIntent & ASModelSyncronizer (Model-View-Intent architecture pattern)
 <img src="https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/resources/ASMVI.png">
-[You can see concept & example at Here](https://medium.com/@h2s1880/mode-view-intent-with-texture-3ce1b4e01b1e)
+You can see concept & example at https://medium.com/@h2s1880/mode-view-intent-with-texture-3ce1b4e01b1e
 
 
 ## Installation

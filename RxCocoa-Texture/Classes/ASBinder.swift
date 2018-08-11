@@ -12,11 +12,19 @@ public struct ASBinder<Value>: ASObserverType {
     public typealias E = Value
     typealias RenderQueueScheduler = ConcurrentDispatchQueueScheduler
     private let _binding: (Event<Value>, ASDisplayNode?) -> ()
+    private var _directlyBinding: (Value?) -> ()
     
     public init<Target: AnyObject>(_ target: Target,
-                                   scheduler: ImmediateSchedulerType = RenderQueueScheduler(qos: .utility),
+                                   scheduler: ImmediateSchedulerType = MainScheduler(),
                                    binding: @escaping (Target, Value) -> ()) {
         weak var weakTarget = target
+        
+        _directlyBinding = { value in
+            if let target = weakTarget,
+                let `value` = value {
+                binding(target, value)
+            }
+        }
         
         _binding = { event, node in
             switch event {
@@ -49,10 +57,15 @@ public struct ASBinder<Value>: ASObserverType {
     public func on(_ event: Event<Value>) {
         _binding(event, nil)
     }
+    
+    public func directlyBinding(_ element: Value?) {
+        _directlyBinding(element)
+    }
 }
 
 public protocol ASObserverType: ObserverType {
     func on(_ event: Event<E>, node: ASDisplayNode?)
+    func directlyBinding(_ element: E?)
 }
 
 extension ObservableType {
@@ -153,3 +166,6 @@ extension ObservableType {
             .bind(to: relay, setNeedsLayout: weakNode)
     }
 }
+
+
+

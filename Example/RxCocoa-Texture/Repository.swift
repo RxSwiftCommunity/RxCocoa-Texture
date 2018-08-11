@@ -1,4 +1,5 @@
 import Foundation
+import RxCocoa_Texture
 
 class Repository: Decodable {
     var id: Int = -1
@@ -24,5 +25,11 @@ class Repository: Decodable {
         desc = repo.desc
         isPrivate = repo.isPrivate
         isForked = repo.isForked
+    }
+}
+
+extension Repository: ASRenderModelProtocol {
+    var renderModelIdentifier: ASRenderModelIdentifier {
+        return .init(id, type: type(of: self))
     }
 }

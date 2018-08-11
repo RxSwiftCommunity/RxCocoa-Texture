@@ -131,6 +131,10 @@ viewModel.desc
 
 - [ASBinder](https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/Example/RxCocoa-Texture/ASBinderTestNode.swift)
 
+#### ASIntent & ASModelSyncronizer (Model-View-Intent architecture pattern)
+[You can see concept & example at Here](https://medium.com/@h2s1880/mode-view-intent-with-texture-3ce1b4e01b1e)
+
+
 ## Installation
 
 RxCocoa-Texture is available through [CocoaPods](https://cocoapods.org). To install

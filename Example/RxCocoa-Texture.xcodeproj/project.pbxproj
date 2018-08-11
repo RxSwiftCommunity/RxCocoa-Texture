@@ -31,6 +31,11 @@
 		9B0E163E210DADB70013EC86 /* ImageTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1637210DADB60013EC86 /* ImageTestNode.swift */; };
 		9B0E163F210DADB70013EC86 /* ASBinderTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1638210DADB70013EC86 /* ASBinderTestNode.swift */; };
 		9B0E1642210DADCF0013EC86 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */; };
+		9B134ABF211BBA7900EBD0EB /* Repository+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B134ABE211BBA7900EBD0EB /* Repository+Logic.swift */; };
+		9B134AC1211BC42000EBD0EB /* RepositoryViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B134AC0211BC42000EBD0EB /* RepositoryViewController2.swift */; };
+		9BE3DFE3211E780600816FD9 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3DFE2211E780500816FD9 /* ImageDownloader.swift */; };
+		9BE3DFE5211E797600816FD9 /* User+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3DFE4211E797600816FD9 /* User+Logic.swift */; };
+		9BE3DFE7211E817500816FD9 /* RepositoryListCellNode2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3DFE6211E817500816FD9 /* RepositoryListCellNode2.swift */; };
 		C2B9E94A4FCBBCFCA86BBE1B /* Pods_RxCocoa_Texture_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C467A356AD9535ACE740C9 /* Pods_RxCocoa_Texture_Tests.framework */; };
 		F77E2B9F7CE27BC62474DD2B /* Pods_RxCocoa_Texture_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64F85DE41A757B8E1C3E68C /* Pods_RxCocoa_Texture_Example.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +82,11 @@
 		9B0E1637210DADB60013EC86 /* ImageTestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTestNode.swift; sourceTree = "<group>"; };
 		9B0E1638210DADB70013EC86 /* ASBinderTestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASBinderTestNode.swift; sourceTree = "<group>"; };
 		9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
+		9B134ABE211BBA7900EBD0EB /* Repository+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+Logic.swift"; sourceTree = "<group>"; };
+		9B134AC0211BC42000EBD0EB /* RepositoryViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController2.swift; sourceTree = "<group>"; };
+		9BE3DFE2211E780500816FD9 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		9BE3DFE4211E797600816FD9 /* User+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Logic.swift"; sourceTree = "<group>"; };
+		9BE3DFE6211E817500816FD9 /* RepositoryListCellNode2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCellNode2.swift; sourceTree = "<group>"; };
 		9E1C79DA561D40B89763472E /* Pods-RxCocoa-Texture_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Tests/Pods-RxCocoa-Texture_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A700DE1AE94F129E06542938 /* Pods-RxCocoa-Texture_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Example/Pods-RxCocoa-Texture_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B64F85DE41A757B8E1C3E68C /* Pods_RxCocoa_Texture_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxCocoa_Texture_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +150,7 @@
 		607FACD21AFB9204008FA782 /* Example for RxCocoa-Texture */ = {
 			isa = PBXGroup;
 			children = (
+				9B134ABD211BBA5800EBD0EB /* BusinessLogic */,
 				9B0E1640210DADBE0013EC86 /* viewModels */,
 				9B0E1631210DADA50013EC86 /* nodes */,
 				9B0E162C210DAD930013EC86 /* networks */,
@@ -200,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				9B0E161B210DAD540013EC86 /* RepositoryViewController.swift */,
+				9B134AC0211BC42000EBD0EB /* RepositoryViewController2.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -234,6 +246,7 @@
 			children = (
 				9B0E162E210DAD9D0013EC86 /* Network.swift */,
 				9B0E162D210DAD9C0013EC86 /* RepoService.swift */,
+				9BE3DFE2211E780500816FD9 /* ImageDownloader.swift */,
 			);
 			name = networks;
 			sourceTree = "<group>";
@@ -248,6 +261,7 @@
 				9B0E1634210DADB50013EC86 /* NetworkImageTestNode.swift */,
 				9B0E1632210DADB50013EC86 /* RepositoryListCellNode.swift */,
 				9B0E1633210DADB50013EC86 /* TextTestNode.swift */,
+				9BE3DFE6211E817500816FD9 /* RepositoryListCellNode2.swift */,
 			);
 			name = nodes;
 			sourceTree = "<group>";
@@ -258,6 +272,15 @@
 				9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */,
 			);
 			name = viewModels;
+			sourceTree = "<group>";
+		};
+		9B134ABD211BBA5800EBD0EB /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				9B134ABE211BBA7900EBD0EB /* Repository+Logic.swift */,
+				9BE3DFE4211E797600816FD9 /* User+Logic.swift */,
+			);
+			name = BusinessLogic;
 			sourceTree = "<group>";
 		};
 		DEF87B7647FEB19F408929F0 /* Frameworks */ = {
@@ -476,19 +499,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B0E1630210DAD9D0013EC86 /* Network.swift in Sources */,
+				9B134ABF211BBA7900EBD0EB /* Repository+Logic.swift in Sources */,
 				9B0E162A210DAD890013EC86 /* Repository.swift in Sources */,
 				9B0E1626210DAD7B0013EC86 /* Decoder+extension.swift in Sources */,
 				9B0E161D210DAD550013EC86 /* RepositoryViewController.swift in Sources */,
 				9B0E1639210DADB70013EC86 /* RepositoryListCellNode.swift in Sources */,
+				9BE3DFE7211E817500816FD9 /* RepositoryListCellNode2.swift in Sources */,
 				9B0E163F210DADB70013EC86 /* ASBinderTestNode.swift in Sources */,
 				9B0E162B210DAD890013EC86 /* User.swift in Sources */,
+				9BE3DFE3211E780600816FD9 /* ImageDownloader.swift in Sources */,
 				9B0E163E210DADB70013EC86 /* ImageTestNode.swift in Sources */,
 				9B0E163B210DADB70013EC86 /* NetworkImageTestNode.swift in Sources */,
 				9B0E163D210DADB70013EC86 /* EditableTextTestNode.swift in Sources */,
 				9B0E163A210DADB70013EC86 /* TextTestNode.swift in Sources */,
 				9B0E162F210DAD9D0013EC86 /* RepoService.swift in Sources */,
 				9B0E1642210DADCF0013EC86 /* RepositoryViewModel.swift in Sources */,
+				9BE3DFE5211E797600816FD9 /* User+Logic.swift in Sources */,
 				9B0E1622210DAD6E0013EC86 /* RepoProvider.swift in Sources */,
+				9B134AC1211BC42000EBD0EB /* RepositoryViewController2.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				9B0E163C210DADB70013EC86 /* ButtonTestNode.swift in Sources */,
 			);

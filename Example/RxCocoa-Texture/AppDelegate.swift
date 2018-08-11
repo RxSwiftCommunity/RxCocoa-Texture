@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds) // create UIwindow
-        let viewController = RepositoryViewController()
+        let viewController = RepositoryViewController2()
         let navigationController =
             UINavigationController(rootViewController: viewController)
         if let window = window {

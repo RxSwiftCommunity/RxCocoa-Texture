@@ -4,8 +4,8 @@ import RxSwift
 import RxCocoa
 import RxCocoa_Texture
 
-class RepositoryListCellNode: ASCellNode {
-    typealias Node = RepositoryListCellNode
+class RepositoryListCellNode2: ASCellNode {
+    typealias Node = RepositoryListCellNode2
     
     struct Attribute {
         static let placeHolderColor: UIColor = UIColor.gray.withAlphaComponent(0.2)
@@ -54,47 +54,58 @@ class RepositoryListCellNode: ASCellNode {
     deinit {
         print("DEBUG* deallocate \(id)")
     }
+    let repoIntent: ASIntent<Repository>
+    let userIntent: ASIntent<User>
     
-    init(viewModel: RepositoryViewModel) {
-        self.id = viewModel.id
+    init(repo: Repository) {
+        self.id = repo.id
+        self.repoIntent = ASIntent<Repository>(repo, by: disposeBag)
+        self.userIntent = ASIntent<User>(repo.user, by: disposeBag)
+        
         super.init()
         self.selectionStyle = .none
         self.backgroundColor = .white
         self.automaticallyManagesSubnodes = true
         
-        viewModel.profileURL
-            .bind(to: userProfileNode.rx.url)
+        repoIntent.update(to: descriptionNode.rx.text(Node.descAttributes),
+                          mutation: { $0?.desc },
+                          setNeedsLayout: self)
             .disposed(by: disposeBag)
         
-        viewModel.username
-            .bind(to: usernameNode.rx.text(Node.usernameAttributes),
-                  setNeedsLayout: self)
+        repoIntent.update(to: statusNode.rx.text(Node.statusAttributes),
+                          mutation: { RepositoryLogic.status($0) },
+                          setNeedsLayout: self)
             .disposed(by: disposeBag)
         
-        viewModel.desc
-            .bind(to: descriptionNode.rx.text(Node.descAttributes),
-                  setNeedsLayout: self)
+        repoIntent
+            .interact(from: usernameNode.rx.tap,
+                      mutation: RepositoryLogic.descUpdate)
             .disposed(by: disposeBag)
         
-        viewModel.status
-            .bind(to: statusNode.rx.text(Node.statusAttributes),
-                  setNeedsLayout: self)
+        userIntent.update(to: userProfileNode.rx.url,
+                          mutation: { $0?.profileURL })
             .disposed(by: disposeBag)
         
-        userProfileNode.rx.tap.asObservable().flatMap({ ImageDownloader.download() })
-            .bind(to: viewModel.updateProfileImage)
+        userIntent.update(to: usernameNode.rx.text(Node.usernameAttributes),
+                          mutation: { $0?.username },
+                          setNeedsLayout: self)
+            .disposed(by: disposeBag)
+        
+        userIntent
+            .interact(from: UserLogic.downloadImage(userProfileNode.rx.tap),
+                      mutation: UserLogic.updateUserProfile)
             .disposed(by: disposeBag)
     }
 }
 
-extension RepositoryListCellNode: ASTextNodeDelegate {
+extension RepositoryListCellNode2: ASTextNodeDelegate {
     func textNodeTappedTruncationToken(_ textNode: ASTextNode) {
         textNode.maximumNumberOfLines = 0
         self.setNeedsLayout()
     }
 }
 
-extension RepositoryListCellNode {
+extension RepositoryListCellNode2 {
     // layout spec
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let contentLayout = contentLayoutSpec()
@@ -129,7 +140,7 @@ extension RepositoryListCellNode {
     }
 }
 
-extension RepositoryListCellNode {
+extension RepositoryListCellNode2 {
     static var usernameAttributes: [NSAttributedStringKey: Any] {
         return [NSAttributedStringKey.foregroundColor: UIColor.black,
                 NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20.0)]

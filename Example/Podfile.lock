@@ -24,7 +24,7 @@ PODS:
     - RxSwift (~> 4)
   - RxCocoa (4.2.0):
     - RxSwift (~> 4.0)
-  - RxCocoa-Texture (1.0.0):
+  - RxCocoa-Texture (1.1.2):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
     - Texture (= 2.6)
@@ -73,7 +73,7 @@ SPEC CHECKSUMS:
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RxAlamofire: 87a9c588541210cc3e4a1f843ccc3ecf3eb98b31
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
-  RxCocoa-Texture: f940f93675f299ed00198acd8f611e780a33e7a4
+  RxCocoa-Texture: 8a661bb7e1845fe31eaeb41b8f160c99974ccffa
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
   RxTest: 8da864c0ee47534f586ff18fb0c7e5b2f1fe5023
   Texture: 7249074582daf75e524e59df5428b66b8e8db0e4

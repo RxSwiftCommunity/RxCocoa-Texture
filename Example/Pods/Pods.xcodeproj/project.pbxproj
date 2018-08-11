@@ -593,7 +593,7 @@
 		9932F1DA763AF2D8893C19515379A50D /* ASHashing.h in Headers */ = {isa = PBXBuildFile; fileRef = 0402287314693314DB6527AA73B6D9E1 /* ASHashing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A3A810C4E991D40CA4C6CA3450B557B /* ASMutableElementMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD489691099E638781315D3DEFE2C3C /* ASMutableElementMap.m */; };
 		9B08B2B0BA458FEBA7FEC1717E01C0F9 /* ASIntegerMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F089C0F109855ACDD5125D6B8A647C0 /* ASIntegerMap.mm */; };
-		9BE3DFE1211DBB0300816FD9 /* ASRenderModelIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3DFDF211DBAB600816FD9 /* ASRenderModelIdentifier.swift */; };
+		9BE3DFEE211E941000816FD9 /* ASRenderModelIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3DFED211E941000816FD9 /* ASRenderModelIdentifier.swift */; };
 		9C61E13B3F7E535BECF907F4F8C98F1B /* ASPINRemoteImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BECE3E0AC2C347425F9C69D5C77F80 /* ASPINRemoteImageDownloader.m */; };
 		9C8402EA81949D5020F4C50206A8318A /* ObserveOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37706403A2188D824DCFCA959E80F93E /* ObserveOn.swift */; };
 		9CB1B33B5467CC8C9E96C271FFF3EAB7 /* ASDimensionInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = D55EB1BFD376E7CBBF1036296375D281 /* ASDimensionInternal.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1804,7 +1804,7 @@
 		9B484FBFE1F7586953C4658400EA29BB /* ASCollectionElement.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = ASCollectionElement.mm; path = Source/Details/ASCollectionElement.mm; sourceTree = "<group>"; };
 		9B5A53B0EE007F4AFE348BC1E54D04C7 /* QuickSpecBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuickSpecBase.h; path = Sources/QuickSpecBase/include/QuickSpecBase.h; sourceTree = "<group>"; };
 		9BD276BFE2FA05E68EFA971BB10B864E /* ASCornerLayoutSpec.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = ASCornerLayoutSpec.mm; path = Source/Layout/ASCornerLayoutSpec.mm; sourceTree = "<group>"; };
-		9BE3DFDF211DBAB600816FD9 /* ASRenderModelIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASRenderModelIdentifier.swift; sourceTree = "<group>"; };
+		9BE3DFED211E941000816FD9 /* ASRenderModelIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASRenderModelIdentifier.swift; path = "RxCocoa-Texture/Classes/ASRenderModelIdentifier.swift"; sourceTree = "<group>"; };
 		9C169C8A0B10417608D384C3FD7153E0 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = RxSwift/Observables/Filter.swift; sourceTree = "<group>"; };
 		9CA779F2206FDF4FD905F64C00FB56D9 /* ASMultiplexImageNode.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = ASMultiplexImageNode.mm; path = Source/ASMultiplexImageNode.mm; sourceTree = "<group>"; };
 		9D0F35E959167D138E35AC708A1A2C73 /* ASPagerNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASPagerNode.h; path = Source/ASPagerNode.h; sourceTree = "<group>"; };
@@ -2410,6 +2410,7 @@
 		38511C42CD18366F25451367A9137605 /* RxCocoa-Texture */ = {
 			isa = PBXGroup;
 			children = (
+				9BE3DFED211E941000816FD9 /* ASRenderModelIdentifier.swift */,
 				DC7E15F77B027C93C036F6DEF94500BD /* ASBinder.swift */,
 				E639C09956D2DB9B06D8E43AA3E41372 /* ASButtonNode+Rx.swift */,
 				1F4DB2B38877718B469DCF205E789A45 /* ASControlNode+Rx.swift */,
@@ -2422,7 +2423,6 @@
 				AE682C7E1F83F0036189B24C4A275C44 /* ASModelSyncronizer.swift */,
 				E0AEF7C1FE02E6E5915A1026FAC7A446 /* Pod */,
 				6AAE7F2EBBFD7E5866B7CF72077E73E9 /* Support Files */,
-				9BE3DFDF211DBAB600816FD9 /* ASRenderModelIdentifier.swift */,
 			);
 			name = "RxCocoa-Texture";
 			path = ../..;
@@ -5091,7 +5091,7 @@
 				0BD83ADE1DA82C81DB9BFD43DC42A687 /* ASButtonNode+Rx.swift in Sources */,
 				20D6663F38AFC583A2DFAA1477C4DD4C /* ASControlNode+Rx.swift in Sources */,
 				F9EA8894452E6FD412187953C655D220 /* ASDisplayNode+Rx.swift in Sources */,
-				9BE3DFE1211DBB0300816FD9 /* ASRenderModelIdentifier.swift in Sources */,
+				9BE3DFEE211E941000816FD9 /* ASRenderModelIdentifier.swift in Sources */,
 				ED1F3DB6108B94F8CAE99B0A35C9E257 /* ASEditableTextNode+Rx.swift in Sources */,
 				538A8C95F0D795A36094575804490E31 /* ASImageNode+Rx.swift in Sources */,
 				0D1415A0750620AF889A6B13C53BB7BF /* ASIntent.swift in Sources */,

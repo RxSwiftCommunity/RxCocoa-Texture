@@ -76,11 +76,9 @@ extension ASDisplayNode {
         if self.isNodeLoaded {
             self.setNeedsLayout()
         } else {
-            ASPerformBlockOnMainThread { [weak self] () -> Void in
-                self?.setNeedsLayout()
-                self?.layoutIfNeeded()
-                self?.invalidateCalculatedLayout()
-            }
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
+            self.invalidateCalculatedLayout()
         }
     }
 }

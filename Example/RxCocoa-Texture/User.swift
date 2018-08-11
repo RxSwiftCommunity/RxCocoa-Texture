@@ -1,4 +1,5 @@
 import Foundation
+import RxCocoa_Texture
 
 class User: Decodable {
     var username: String = ""
@@ -13,5 +14,11 @@ class User: Decodable {
         guard let user = user else { return }
         self.username = user.username
         self.profileURL = user.profileURL
+    }
+}
+
+extension User: ASRenderModelProtocol  {
+    var renderModelIdentifier: ASRenderModelIdentifier {
+        return .init(username, type: type(of: self))
     }
 }

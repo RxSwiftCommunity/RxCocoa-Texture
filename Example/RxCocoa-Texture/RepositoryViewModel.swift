@@ -8,6 +8,7 @@ class RepositoryViewModel {
     let updateRepository = PublishRelay<Repository>()
     let updateUsername = PublishRelay<String?>()
     let updateDescription = PublishRelay<String?>()
+    let updateProfileImage = PublishRelay<URL?>()
     
     // @OUTPUT
     var username: Observable<String?>
@@ -71,5 +72,13 @@ class RepositoryViewModel {
                 repo.desc = text
                 RepoProvider.update(repo)
             }).disposed(by: disposeBag)
+        
+        updateProfileImage.withLatestFrom(repoObserver) { ($0, $1) }
+            .subscribe(onNext: { url, repo in
+                guard let repo = repo else { return }
+                repo.user?.profileURL = url
+                RepoProvider.update(repo)
+            }).disposed(by: disposeBag)
+        
     }
 }

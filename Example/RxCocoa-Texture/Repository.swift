@@ -27,9 +27,3 @@ class Repository: Decodable {
         isForked = repo.isForked
     }
 }
-
-extension Repository: ASRenderModelProtocol {
-    var renderModelIdentifier: ASRenderModelIdentifier {
-        return .init(id, type: type(of: self))
-    }
-}

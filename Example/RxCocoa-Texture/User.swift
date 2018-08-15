@@ -16,9 +16,3 @@ class User: Decodable {
         self.profileURL = user.profileURL
     }
 }
-
-extension User: ASRenderModelProtocol  {
-    var renderModelIdentifier: ASRenderModelIdentifier {
-        return .init(username, type: type(of: self))
-    }
-}

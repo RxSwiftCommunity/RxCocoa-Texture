@@ -10,7 +10,6 @@ import RxCocoa
 
 public struct ASBinder<Value>: ASObserverType {
     public typealias E = Value
-    typealias RenderQueueScheduler = ConcurrentDispatchQueueScheduler
     private let _binding: (Event<Value>, ASDisplayNode?) -> ()
     private var _directlyBinding: (Value?) -> ()
     
@@ -70,9 +69,15 @@ public protocol ASObserverType: ObserverType {
 
 extension ObservableType {
     public func bind<O>(to observer: O,
+                        directlyBind: Bool = false,
                         setNeedsLayout node: ASDisplayNode? = nil)
         -> Disposable where O : ASObserverType, Self.E == O.E {
             weak var weakNode = node
+            
+            if directlyBind, let value = (self as? BehaviorRelay<Self.E>)?.value {
+                observer.directlyBinding(value)
+            }
+        
             return subscribe { event in
                 switch event {
                 case .next:
@@ -90,9 +95,15 @@ extension ObservableType {
     }
     
     public func bind<O: ASObserverType>(to observer: O,
+                                        directlyBind: Bool = false,
                                         setNeedsLayout node: ASDisplayNode? = nil)
         -> Disposable where O.E == E? {
             weak var weakNode = node
+            
+            if directlyBind, let value = (self as? BehaviorRelay<Self.E>)?.value {
+                observer.directlyBinding(value)
+            }
+            
             return self.map { $0 }.subscribe { observerEvent in
                 switch observerEvent {
                 case .next:

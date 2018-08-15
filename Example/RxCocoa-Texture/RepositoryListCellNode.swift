@@ -55,7 +55,7 @@ class RepositoryListCellNode: ASCellNode {
         print("DEBUG* deallocate \(id)")
     }
     
-    init(viewModel: RepositoryViewModel) {
+    init(viewModel: RepositoryViewModel2) {
         self.id = viewModel.id
         super.init()
         self.selectionStyle = .none
@@ -63,21 +63,25 @@ class RepositoryListCellNode: ASCellNode {
         self.automaticallyManagesSubnodes = true
         
         viewModel.profileURL
-            .bind(to: userProfileNode.rx.url)
+            .bind(to: userProfileNode.rx.url,
+                  directlyBind: true)
             .disposed(by: disposeBag)
         
         viewModel.username
             .bind(to: usernameNode.rx.text(Node.usernameAttributes),
+                  directlyBind: true,
                   setNeedsLayout: self)
             .disposed(by: disposeBag)
         
         viewModel.desc
             .bind(to: descriptionNode.rx.text(Node.descAttributes),
+                  directlyBind: true,
                   setNeedsLayout: self)
             .disposed(by: disposeBag)
         
         viewModel.status
             .bind(to: statusNode.rx.text(Node.statusAttributes),
+                  directlyBind: true,
                   setNeedsLayout: self)
             .disposed(by: disposeBag)
         

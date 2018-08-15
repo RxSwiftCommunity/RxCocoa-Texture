@@ -5,7 +5,7 @@ import RxCocoa
 
 class RepositoryViewController: ASViewController<ASTableNode> {
     
-    private var items: [RepositoryViewModel] = []
+    private var items: [RepositoryViewModel2] = []
     private var context = ASBatchContext()
     
     let disposeBag = DisposeBag()
@@ -43,7 +43,7 @@ class RepositoryViewController: ASViewController<ASTableNode> {
         _ = RepoService.loadRepository(params: [.since(since)])
             .delay(0.5, scheduler: MainScheduler.asyncInstance)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
-            .map { $0.map { RepositoryViewModel(repository: $0) } }
+            .map { $0.map { RepositoryViewModel2(repository: $0) } }
             .observeOn(MainScheduler.instance)
             .subscribe(onSuccess: { [weak self] items in
                 guard let `self` = self else { return }

@@ -6,12 +6,10 @@
 [![Platform](https://img.shields.io/cocoapods/p/RxCocoa-Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa-Texture)
 
 ## Notice
-- ASBinder Scheduler Changed from MainScheduler to Utility Concurrent Scheduler (18.08.06)
-- Create rx_setNeedsLayout for Fix RxSwift event binding & wrong constrainedSize min & max issue (18.08.04)
-- Fix Example Github repository API queryString issue (18.08.04)
-- [GTTexture+RxExtension](https://github.com/GeekTree0101/GTTexture-RxExtension) is deprecated (18.08.02)
-- ASButtonNode url image downloader no more support, try to use ASNetworkImageNode with ASTextNode (18.08.02)
-- Texture 2.7 doesn't support cocoapods (follow Installation guide), but 2.7.1 hotfix version will coming soon. (18.08.02)
+- ASBinder support directly binder for behaviorRelay
+- [GTTexture+RxExtension](https://github.com/GeekTree0101/GTTexture-RxExtension) is deprecated
+- ASButtonNode url image downloader no more support, try to use ASNetworkImageNode with ASTextNode
+- Texture 2.7 doesn't support cocoapods, but 2.7.1 hotfix version will coming soon.
 
 > ### Your Contributions always welcome welcome!.
 
@@ -131,10 +129,6 @@ viewModel.desc
 
 - [ASBinder](https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/Example/RxCocoa-Texture/ASBinderTestNode.swift)
 
-#### ASIntent & ASModelSyncronizer (Model-View-Intent architecture pattern)
-<img src="https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/resources/ASMVI.png">
-You can see concept & example at https://medium.com/@h2s1880/mode-view-intent-with-texture-3ce1b4e01b1e
-
 
 ## Installation
 
@@ -147,11 +141,11 @@ it, simply add the following line to your Podfile:
 pod 'RxCocoa-Texture'
 ```
 
-#### swift 4.x & Texture 2.7 Only
-
-```ruby
-pod 'RxCocoa-Texture', :git => 'https://github.com/GeekTree0101/RxCocoa-Texture.git', :branch => 'Texture-2.7'
-```
+## Caution
+This library has been migrated to Texture 2.7.
+When Rx subscribe logic moves from initialization to didLoad method. I no longer faced this problem.
+When using RxSwift / RxCocoa, it is safe to subscribe from the didLoad method.
+https://github.com/TextureGroup/Texture/issues/977
 
 ## Author
 

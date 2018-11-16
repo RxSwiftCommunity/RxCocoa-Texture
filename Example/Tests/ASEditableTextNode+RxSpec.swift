@@ -2,7 +2,7 @@
 //  ASEditableTextNode+RxExtensionSpec.swift
 //
 //  Created by Geektree0101.
-//  Copyright(C) 2018 Geektree0101. All rights reserved.
+//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
 //
 
 import Quick
@@ -16,7 +16,9 @@ import AsyncDisplayKit
 class ASEditableTextNode_RxExtensionSpec: QuickSpec {
     
     override func spec() {
+        
         context("ASEditableTextNode Reactive Extension  Unit Test") {
+            
             let textNode1 = ASEditableTextNode()
             let textNode2 = ASEditableTextNode()
             let textNode3 = ASEditableTextNode()
@@ -44,6 +46,7 @@ class ASEditableTextNode_RxExtensionSpec: QuickSpec {
             }
             
             it("should be emit expected event") {
+                
                 expect(textNode1.attributedText?.string).to(equal("apple"))
                 expect(textNode2.attributedText?.string).to(beNil())
                 expect(textNode3.attributedText?.string).to(equal("banana"))

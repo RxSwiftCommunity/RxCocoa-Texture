@@ -2,7 +2,7 @@
 //  ASImageNode+RxExtensionSpec.swift
 //
 //  Created by Geektree0101.
-//  Copyright(C) 2018 Geektree0101. All rights reserved.
+//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
 //
 
 import Quick
@@ -16,7 +16,9 @@ import AsyncDisplayKit
 class ASImageNode_RxExtensionSpecSpec: QuickSpec {
     
     override func spec() {
+        
         context("ASImageNode Reactive Extension  Unit Test") {
+            
             let imageNode1 = ASImageNode()
             let imageNode2 = ASImageNode()
             let disposeBag = DisposeBag()

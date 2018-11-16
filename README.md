@@ -151,5 +151,5 @@ https://github.com/TextureGroup/Texture/issues/977
 Geektree0101, h2s1880@gmail.com
 
 ## License
-
+This library belongs to RxSwiftCommunity.
 RxCocoa-Texture is available under the MIT license. See the LICENSE file for more info

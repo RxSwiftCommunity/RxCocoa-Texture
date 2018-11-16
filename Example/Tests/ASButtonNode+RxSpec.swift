@@ -2,7 +2,7 @@
 //  ASButtonNode+RxExtensionSpec.swift
 //
 //  Created by Geektree0101.
-//  Copyright(C) 2018 Geektree0101. All rights reserved.
+//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
 //
 
 import Quick
@@ -17,7 +17,9 @@ import UIKit
 class ASButtonNode_RxExtensionSpecSpec: QuickSpec {
     
     override func spec() {
+        
         context("ASButtonNode Reactive Extension Unit Test") {
+            
             let buttonNode = ASButtonNode()
             let testAttributedString = NSAttributedString.init(string: "apple")
             let testAttributedString2 = NSAttributedString.init(string: "banana")
@@ -26,6 +28,7 @@ class ASButtonNode_RxExtensionSpecSpec: QuickSpec {
             let disposedBag = DisposeBag()
             
             it("should be success bind attributedText") {
+                
                 Observable.just(testAttributedString)
                     .bind(to: buttonNode.rx.attributedText)
                     .disposed(by: disposedBag)

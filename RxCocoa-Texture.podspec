@@ -13,8 +13,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.3'
 
   s.source_files = 'RxCocoa-Texture/Classes/**/*'
-  s.swift_version = '4.0'
-  
+
   s.dependency 'RxSwift', '~> 4.0'
   s.dependency 'RxCocoa', '~> 4.0'
   s.dependency 'Texture', '2.6'

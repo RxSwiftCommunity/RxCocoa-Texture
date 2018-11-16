@@ -2,7 +2,7 @@
 //  ASTextNode+RxExtensionSpec.swift
 //
 //  Created by Geektree0101.
-//  Copyright(C) 2018 Geektree0101. All rights reserved.
+//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
 //
 
 import Quick
@@ -16,7 +16,9 @@ import AsyncDisplayKit
 class ASTextNode_RxExtensionSpecSpec: QuickSpec {
     
     override func spec() {
+        
         context("ASTextNode Reactive Extension  Unit Test") {
+            
             let textNode1 = ASTextNode()
             let textNode2 = ASTextNode()
             let textNode3 = ASTextNode()
@@ -44,6 +46,7 @@ class ASTextNode_RxExtensionSpecSpec: QuickSpec {
             }
             
             it("should be emit expected event") {
+                
                 expect(textNode1.attributedText?.string).to(equal("apple"))
                 expect(textNode2.attributedText?.string).to(equal(""))
                 expect(textNode3.attributedText?.string).to(equal("banana"))

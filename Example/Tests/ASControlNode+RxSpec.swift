@@ -2,7 +2,7 @@
 //  ASControlNode+RxExtensionSpec.swift
 //
 //  Created by Geektree0101.
-//  Copyright(C) 2018 Geektree0101. All rights reserved.
+//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
 //
 
 import Quick
@@ -17,7 +17,9 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
     
     // refer: http://texturegroup.org/docs/node-overview.html
     override func spec() {
+        
         context("ASControlNode Reactive Extension Test") {
+            
             let controlNode = ASControlNode()
             let disposedBag = DisposeBag()
             
@@ -82,6 +84,7 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
             }
             
             it("should be emit tap event") {
+                
                 let scheduler = TestScheduler.init(initialClock: 0)
                 
                 let emitObserver = scheduler
@@ -108,6 +111,7 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
             }
             
             it("should be emit relay tap event") {
+                
                 let scheduler = TestScheduler.init(initialClock: 0)
                 let emitter = PublishRelay<Void>()
                 let accepter: Observable<Bool>
@@ -139,6 +143,7 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
             }
             
             it("should be hidden/show") {
+                
                 Observable.just(true)
                     .bind(to: controlNode.rx.isHidden)
                     .disposed(by: disposedBag)
@@ -153,6 +158,7 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
             }
             
             it("should be enable/disable") {
+                
                 Observable.just(true)
                     .bind(to: controlNode.rx.isEnabled)
                     .disposed(by: disposedBag)
@@ -168,6 +174,7 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
             }
             
             it("should be highlight/unhighlight") {
+                
                 Observable.just(true)
                     .bind(to: controlNode.rx.isHighlighted)
                     .disposed(by: disposedBag)
@@ -182,6 +189,7 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
             }
             
             it("should be selected/non-selected") {
+                
                 Observable.just(true)
                     .bind(to: controlNode.rx.isSelected)
                     .disposed(by: disposedBag)

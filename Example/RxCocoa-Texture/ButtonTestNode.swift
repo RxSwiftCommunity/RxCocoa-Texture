@@ -23,8 +23,8 @@ class ButtonTestNode: ASDisplayNode {
     let url = URL(string: "https://koreaboo-cdn.storage.googleapis.com/2017/08/sana-1-1.jpg")
     let touchRelay = PublishRelay<Void>()
     
-    let defaultAttr = [NSAttributedStringKey.foregroundColor: UIColor.black]
-    let disableAttr = [NSAttributedStringKey.foregroundColor: UIColor.gray]
+    let defaultAttr = [NSAttributedString.Key.foregroundColor: UIColor.black]
+    let disableAttr = [NSAttributedString.Key.foregroundColor: UIColor.gray]
     
     override init() {
         super.init()

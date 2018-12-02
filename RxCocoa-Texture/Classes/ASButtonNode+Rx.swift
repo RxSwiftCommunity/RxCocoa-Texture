@@ -32,7 +32,7 @@ extension Reactive where Base: ASButtonNode {
     }
     
     // apply attributedText on targeted control state
-    public func attributedText(_ controlState: UIControlState) -> ASBinder<NSAttributedString?> {
+    public func attributedText(_ controlState: UIControl.State) -> ASBinder<NSAttributedString?> {
         
         return ASBinder(self.base) { node, attributedText in
             node.setAttributedTitle(attributedText, for: controlState)
@@ -40,7 +40,7 @@ extension Reactive where Base: ASButtonNode {
     }
     
     // apply text with attribute on all control state
-    public func text(_ attribute: [NSAttributedStringKey: Any]?) -> ASBinder<String?> {
+    public func text(_ attribute: [NSAttributedString.Key: Any]?) -> ASBinder<String?> {
         
         return ASBinder(self.base) { node, text in
             guard let text = text else {
@@ -54,8 +54,8 @@ extension Reactive where Base: ASButtonNode {
     }
     
     // apply text with attribute on targeted control state
-    public func text(_ attribute: [NSAttributedStringKey: Any]?,
-              target: UIControlState) -> ASBinder<String?> {
+    public func text(_ attribute: [NSAttributedString.Key: Any]?,
+                     target: UIControl.State) -> ASBinder<String?> {
         
         return ASBinder(self.base) { node, text in
             guard let text = text else {
@@ -145,7 +145,7 @@ extension Reactive where Base: ASButtonNode {
         case disabled(Any?)
         case selected(Any?)
         
-        var state: UIControlState {
+        var state: UIControl.State {
             
             switch self {
             case .normal:
@@ -187,17 +187,17 @@ extension Reactive where Base: ASButtonNode {
             }
         }
         
-        var attributes: [NSAttributedStringKey: Any]? {
+        var attributes: [NSAttributedString.Key: Any]? {
             
             switch self {
             case .normal(let attr):
-                return attr as? [NSAttributedStringKey: Any]
+                return attr as? [NSAttributedString.Key: Any]
             case .highlighted(let attr):
-                return attr as? [NSAttributedStringKey: Any]
+                return attr as? [NSAttributedString.Key: Any]
             case .disabled(let attr):
-                return attr as? [NSAttributedStringKey: Any]
+                return attr as? [NSAttributedString.Key: Any]
             case .selected(let attr):
-                return attr as? [NSAttributedStringKey: Any]
+                return attr as? [NSAttributedString.Key: Any]
             }
         }
     }

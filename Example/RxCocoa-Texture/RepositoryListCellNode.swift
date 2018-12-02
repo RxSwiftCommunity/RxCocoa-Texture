@@ -141,23 +141,23 @@ extension RepositoryListCellNode {
 }
 
 extension RepositoryListCellNode {
-    static var usernameAttributes: [NSAttributedStringKey: Any] {
-        return [NSAttributedStringKey.foregroundColor: UIColor.black,
-                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20.0)]
+    static var usernameAttributes: [NSAttributedString.Key: Any] {
+        return [NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20.0)]
     }
     
-    static var descAttributes: [NSAttributedStringKey: Any] {
-        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray,
-                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15.0)]
+    static var descAttributes: [NSAttributedString.Key: Any] {
+        return [NSAttributedString.Key.foregroundColor: UIColor.darkGray,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15.0)]
     }
     
-    static var statusAttributes: [NSAttributedStringKey: Any] {
-        return [NSAttributedStringKey.foregroundColor: UIColor.gray,
-                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12.0)]
+    static var statusAttributes: [NSAttributedString.Key: Any] {
+        return [NSAttributedString.Key.foregroundColor: UIColor.gray,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12.0)]
     }
     
-    static var moreSeeAttributes: [NSAttributedStringKey: Any] {
-        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray,
-                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15.0, weight: .medium)]
+    static var moreSeeAttributes: [NSAttributedString.Key: Any] {
+        return [NSAttributedString.Key.foregroundColor: UIColor.darkGray,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15.0, weight: .medium)]
     }
 }

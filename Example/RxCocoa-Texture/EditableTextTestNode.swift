@@ -15,7 +15,7 @@ class EditableTextTestNode: ASDisplayNode {
     
     lazy var textNode = ASEditableTextNode()
     let disposeBag = DisposeBag()
-    static let attribute = [NSAttributedStringKey.foregroundColor: UIColor.gray]
+    static let attribute = [NSAttributedString.Key.foregroundColor: UIColor.gray]
     
     override init() {
         super.init()

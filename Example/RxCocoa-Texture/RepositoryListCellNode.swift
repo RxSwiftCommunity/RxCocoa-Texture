@@ -58,10 +58,6 @@ class RepositoryListCellNode: ASCellNode {
     
     var id: Int = -1
     
-    deinit {
-        print("DEBUG* deallocate \(id)")
-    }
-    
     init(viewModel: RepositoryViewModel2) {
         self.id = viewModel.id
         super.init()
@@ -99,14 +95,16 @@ class RepositoryListCellNode: ASCellNode {
 }
 
 extension RepositoryListCellNode: ASTextNodeDelegate {
+    
     func textNodeTappedTruncationToken(_ textNode: ASTextNode) {
         textNode.maximumNumberOfLines = 0
         self.setNeedsLayout()
     }
 }
 
+// MARK: - LayoutSpec
 extension RepositoryListCellNode {
-    // layout spec
+    
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let contentLayout = contentLayoutSpec()
         contentLayout.style.flexShrink = 1.0
@@ -141,6 +139,7 @@ extension RepositoryListCellNode {
 }
 
 extension RepositoryListCellNode {
+    
     static var usernameAttributes: [NSAttributedString.Key: Any] {
         return [NSAttributedString.Key.foregroundColor: UIColor.black,
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20.0)]

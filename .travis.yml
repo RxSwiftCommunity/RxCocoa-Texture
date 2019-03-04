@@ -5,6 +5,7 @@ cache: cocoapods
 podfile: Example/Podfile
 
 before_install:
+  - gem install cocoapods
   - pod install --repo-update --project-directory=Example
   
 branches:
@@ -12,5 +13,11 @@ branches:
     - master
     
 script:
-- xcodebuild clean -workspace Example/RxCocoa-Texture.xcworkspace -scheme RxCocoa-Texture | xcpretty
-- xcodebuild build -sdk iphonesimulator -workspace Example/RxCocoa-Texture.xcworkspace -scheme RxCocoa-Texture CODE_SIGNING_REQUIRED=NO | xcpretty
+- xcodebuild clean build test
+     -workspace Example/RxCocoa-Texture.xcworkspace 
+     -scheme RxCocoa-Texture-Example 
+     -sdk iphonesimulator
+     -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.0'
+     -configuration Debug
+     -enableCodeCoverage YES
+     CODE_SIGNING_REQUIRED=NO | xcpretty

@@ -20,30 +20,17 @@ class ASDisplayNode_RxExtensionSpec: QuickSpec {
             let node1 = ASDisplayNode()
             let node2 = ASDisplayNode()
             let node3 = ASDisplayNode()
-            let disposeBag = DisposeBag()
             
             beforeEach {
-                Observable.just(ASDimension(unit: .points, value: 17.0))
-                    .bind(to: node1.rx.width)
-                    .disposed(by: disposeBag)
-                Observable.just(ASDimension(unit: .points, value: 15.0))
-                    .bind(to: node1.rx.minWidth)
-                    .disposed(by: disposeBag)
-                Observable.just(ASDimension(unit: .points, value: 20.0))
-                    .bind(to: node1.rx.maxWidth)
-                    .disposed(by: disposeBag)
-                Observable.just(ASDimension(unit: .points, value: 17.0))
-                    .bind(to: node2.rx.height)
-                    .disposed(by: disposeBag)
-                Observable.just(ASDimension(unit: .points, value: 15.0))
-                    .bind(to: node2.rx.minHeight)
-                    .disposed(by: disposeBag)
-                Observable.just(ASDimension(unit: .points, value: 20.0))
-                    .bind(to: node2.rx.maxHeight)
-                    .disposed(by: disposeBag)
-                Observable.just(CGSize(width: 40.0, height: 40.0))
-                    .bind(to: node3.rx.preferredSize)
-                    .disposed(by: disposeBag)
+                node1.rx.width.onNext(ASDimension(unit: .points, value: 17.0))
+                node1.rx.minWidth.onNext(ASDimension(unit: .points, value: 15.0))
+                node1.rx.maxWidth.onNext(ASDimension(unit: .points, value: 20.0))
+                
+                node2.rx.height.onNext(ASDimension(unit: .points, value: 17.0))
+                node2.rx.minHeight.onNext(ASDimension(unit: .points, value: 15.0))
+                node2.rx.maxHeight.onNext(ASDimension(unit: .points, value: 20.0))
+                
+                node3.rx.preferredSize.onNext(CGSize(width: 40.0, height: 40.0))
             }
             
             it("should has correct width") {

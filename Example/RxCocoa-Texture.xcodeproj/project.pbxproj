@@ -33,6 +33,7 @@
 		9B0E1642210DADCF0013EC86 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */; };
 		9B6C23932124EB4200129E2F /* RepositoryViewModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C23922124EB4200129E2F /* RepositoryViewModel2.swift */; };
 		9BE3DFE3211E780600816FD9 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3DFE2211E780500816FD9 /* ImageDownloader.swift */; };
+		BA5756B9222CC72D00D8CBD9 /* ASDisplayNode+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5756B7222CC72200D8CBD9 /* ASDisplayNode+RxSpec.swift */; };
 		C2B9E94A4FCBBCFCA86BBE1B /* Pods_RxCocoa_Texture_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C467A356AD9535ACE740C9 /* Pods_RxCocoa_Texture_Tests.framework */; };
 		F77E2B9F7CE27BC62474DD2B /* Pods_RxCocoa_Texture_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64F85DE41A757B8E1C3E68C /* Pods_RxCocoa_Texture_Example.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		9E1C79DA561D40B89763472E /* Pods-RxCocoa-Texture_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Tests/Pods-RxCocoa-Texture_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A700DE1AE94F129E06542938 /* Pods-RxCocoa-Texture_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Example/Pods-RxCocoa-Texture_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B64F85DE41A757B8E1C3E68C /* Pods_RxCocoa_Texture_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxCocoa_Texture_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5756B7222CC72200D8CBD9 /* ASDisplayNode+RxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASDisplayNode+RxSpec.swift"; sourceTree = "<group>"; wrapsLines = 0; };
 		CB878FDCA4BF09167F15A871 /* Pods-RxCocoa-Texture_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Tests/Pods-RxCocoa-Texture_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D34921410F2445031C571EB1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F4C2FBFBDA0CE9B43659AD60 /* Pods-RxCocoa-Texture_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Example/Pods-RxCocoa-Texture_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				BA5756B7222CC72200D8CBD9 /* ASDisplayNode+RxSpec.swift */,
 				9B0E15F7210DA33F0013EC86 /* ASButtonNode+RxSpec.swift */,
 				9B0E15F8210DA33F0013EC86 /* ASControlNode+RxSpec.swift */,
 				9B0E15FA210DA33F0013EC86 /* ASEditableTextNode+RxSpec.swift */,
@@ -510,6 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA5756B9222CC72D00D8CBD9 /* ASDisplayNode+RxSpec.swift in Sources */,
 				9B0E1607210DA3E80013EC86 /* ASEditableTextNode+RxSpec.swift in Sources */,
 				9B0E1606210DA3E50013EC86 /* ASControlNode+RxSpec.swift in Sources */,
 				9B0E1603210DA3CE0013EC86 /* ASImageNode+RxSpec.swift in Sources */,

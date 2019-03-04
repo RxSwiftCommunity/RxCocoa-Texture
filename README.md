@@ -1,6 +1,6 @@
-![alt text](https://github.com/GeekTree0101/RxCocoa-Texture/blob/master/resources/logo.png)
+![alt text](https://github.com/RxSwiftCommunity/RxCocoa-Texture/blob/master/resources/logo.png)
 
-[![CI Status](https://api.travis-ci.org/GeekTree0101/RxCocoa-Texture.svg?branch=master)](https://travis-ci.org/GeekTree0101/RxCocoa-Texture)
+[![CI Status](https://api.travis-ci.org/RxSwiftCommunity/RxCocoa-Texture.svg?branch=master)](https://travis-ci.org/GeekTree0101/RxCocoa-Texture)
 [![Version](https://img.shields.io/cocoapods/v/RxCocoa-Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa-Texture)
 [![License](https://img.shields.io/cocoapods/l/RxCocoa-Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa-Texture)
 [![Platform](https://img.shields.io/cocoapods/p/RxCocoa-Texture.svg?style=flat)](https://cocoapods.org/pods/RxCocoa-Texture)

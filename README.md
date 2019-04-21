@@ -108,7 +108,7 @@ If you don't need setNeedsLayout then just write code like this.
 ```swift
 // setNeedsLayout default is nil!
 viewModel.username
-         .bind(to: usernameNode.rx.text(Node.usernameAttributes) 
+         .bind(to: usernameNode.rx.text(Node.usernameAttributes)) 
          .disposed(by: disposeBag)
 
 viewModel.desc

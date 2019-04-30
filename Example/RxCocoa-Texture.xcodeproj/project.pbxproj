@@ -33,6 +33,7 @@
 		9B0E1642210DADCF0013EC86 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */; };
 		9B6C23932124EB4200129E2F /* RepositoryViewModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C23922124EB4200129E2F /* RepositoryViewModel2.swift */; };
 		9BB3ECFE22784059007CE252 /* BinderAndDriver+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3ECFC22783FB7007CE252 /* BinderAndDriver+RxSpec.swift */; };
+		9BB3ED02227842C5007CE252 /* ASTextNode2+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3ED01227842C5007CE252 /* ASTextNode2+RxSpec.swift */; };
 		9BE3DFE3211E780600816FD9 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3DFE2211E780500816FD9 /* ImageDownloader.swift */; };
 		BA5756B9222CC72D00D8CBD9 /* ASDisplayNode+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5756B7222CC72200D8CBD9 /* ASDisplayNode+RxSpec.swift */; };
 		C2B9E94A4FCBBCFCA86BBE1B /* Pods_RxCocoa_Texture_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C467A356AD9535ACE740C9 /* Pods_RxCocoa_Texture_Tests.framework */; };
@@ -83,6 +84,7 @@
 		9B0E1641210DADCE0013EC86 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
 		9B6C23922124EB4200129E2F /* RepositoryViewModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel2.swift; sourceTree = "<group>"; };
 		9BB3ECFC22783FB7007CE252 /* BinderAndDriver+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BinderAndDriver+RxSpec.swift"; sourceTree = "<group>"; };
+		9BB3ED01227842C5007CE252 /* ASTextNode2+RxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASTextNode2+RxSpec.swift"; sourceTree = "<group>"; };
 		9BE3DFE2211E780500816FD9 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		9E1C79DA561D40B89763472E /* Pods-RxCocoa-Texture_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Tests/Pods-RxCocoa-Texture_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A700DE1AE94F129E06542938 /* Pods-RxCocoa-Texture_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Example/Pods-RxCocoa-Texture_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				9B0E15FB210DA33F0013EC86 /* ASNetworkImageNode+RxSpec.swift */,
 				9B0E15F9210DA33F0013EC86 /* ASTextNode+RxSpec.swift */,
 				9BB3ECFC22783FB7007CE252 /* BinderAndDriver+RxSpec.swift */,
+				9BB3ED01227842C5007CE252 /* ASTextNode2+RxSpec.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -521,6 +524,7 @@
 				9BB3ECFE22784059007CE252 /* BinderAndDriver+RxSpec.swift in Sources */,
 				9B0E1606210DA3E50013EC86 /* ASControlNode+RxSpec.swift in Sources */,
 				9B0E1603210DA3CE0013EC86 /* ASImageNode+RxSpec.swift in Sources */,
+				9BB3ED02227842C5007CE252 /* ASTextNode2+RxSpec.swift in Sources */,
 				9B0E1609210DA3F00013EC86 /* ASTextNode+RxSpec.swift in Sources */,
 				9B0E1605210DA3E30013EC86 /* ASButtonNode+RxSpec.swift in Sources */,
 				9B0E1608210DA3ED0013EC86 /* ASNetworkImageNode+RxSpec.swift in Sources */,

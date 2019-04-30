@@ -1,5 +1,5 @@
 //
-//  ASTextNode+Rx.swift
+//  ASTextNode2+Rx.swift
 //
 //  Created by Geektree0101.
 //  Copyright © 2018 RxSwiftCommunity. All rights reserved.
@@ -9,13 +9,7 @@ import AsyncDisplayKit
 import RxSwift
 import RxCocoa
 
-#if (!AS_ENABLE_TEXTNODE)
-
-// Pull in ASTextNode2 to replace ASTextNode with ASTextNode2
-
-#else
-
-extension Reactive where Base: ASTextNode {
+extension Reactive where Base: ASTextNode2 {
     
     public var attributedText: ASBinder<NSAttributedString?> {
         
@@ -23,7 +17,7 @@ extension Reactive where Base: ASTextNode {
             node.attributedText = attributedText
         }
     }
-
+    
     public func text(_ attributes: [NSAttributedString.Key: Any]?) -> ASBinder<String?> {
         
         return ASBinder(self.base) { node, text in
@@ -37,5 +31,3 @@ extension Reactive where Base: ASTextNode {
         }
     }
 }
-
-#endif

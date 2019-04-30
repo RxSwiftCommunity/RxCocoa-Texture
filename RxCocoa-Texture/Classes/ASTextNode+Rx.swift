@@ -9,12 +9,6 @@ import AsyncDisplayKit
 import RxSwift
 import RxCocoa
 
-#if (!AS_ENABLE_TEXTNODE)
-
-// Pull in ASTextNode2 to replace ASTextNode with ASTextNode2
-
-#else
-
 extension Reactive where Base: ASTextNode {
     
     public var attributedText: ASBinder<NSAttributedString?> {
@@ -37,5 +31,3 @@ extension Reactive where Base: ASTextNode {
         }
     }
 }
-
-#endif

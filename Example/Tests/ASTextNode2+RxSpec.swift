@@ -13,6 +13,8 @@ import RxCocoa
 import AsyncDisplayKit
 @testable import RxCocoa_Texture
 
+#if AS_ENABLE_TEXTNODE
+
 class ASTextNode2_RxExtensionSpecSpec: QuickSpec {
     
     override func spec() {
@@ -56,3 +58,4 @@ class ASTextNode2_RxExtensionSpecSpec: QuickSpec {
     }
 }
 
+#endif

@@ -39,7 +39,7 @@ class ButtonTestNode: ASDisplayNode {
             .disposed(by: disposeBag)
         
         // custom touch event
-        buttonNode.rx.event(.touchUpInside)
+        buttonNode.rx.controlEvent(.touchUpInside)
             .subscribe()
             .disposed(by: disposeBag)
         

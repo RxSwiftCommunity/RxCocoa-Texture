@@ -39,19 +39,19 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
                 }).disposed(by: disposedBag)
                 
                 let outputEvent = scheduler
-                    .record(controlNode.rx.event(.touchUpInside)
+                    .record(controlNode.rx.controlEvent(.touchUpInside)
                         .map { _ -> ASControlNodeEvent in return .touchUpInside })
                 let outputEvent2 = scheduler
-                    .record(controlNode.rx.event(.touchDown)
+                    .record(controlNode.rx.controlEvent(.touchDown)
                         .map { _ -> ASControlNodeEvent in return .touchDown })
                 let outputEvent3 = scheduler
-                    .record(controlNode.rx.event(.touchUpOutside)
+                    .record(controlNode.rx.controlEvent(.touchUpOutside)
                         .map { _ -> ASControlNodeEvent in return .touchUpOutside})
                 let outputEvent4 = scheduler
-                    .record(controlNode.rx.event(.touchDragInside)
+                    .record(controlNode.rx.controlEvent(.touchDragInside)
                         .map { _ -> ASControlNodeEvent in return .touchDragInside })
                 let outputEvent5 = scheduler
-                    .record(controlNode.rx.event(.touchCancel)
+                    .record(controlNode.rx.controlEvent(.touchCancel)
                         .map { _ -> ASControlNodeEvent in return .touchCancel })
                 
                 scheduler.start()

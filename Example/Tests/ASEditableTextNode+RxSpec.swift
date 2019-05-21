@@ -8,6 +8,7 @@
 import Quick
 import Nimble
 import RxTest
+import RxBlocking
 import RxSwift
 import RxCocoa
 import AsyncDisplayKit
@@ -23,6 +24,7 @@ class ASEditableTextNode_RxExtensionSpec: QuickSpec {
             let textNode2 = ASEditableTextNode()
             let textNode3 = ASEditableTextNode()
             let textNode4 = ASEditableTextNode()
+            let textNode5 = ASEditableTextNode()
             
             let disposeBag = DisposeBag()
             
@@ -43,6 +45,9 @@ class ASEditableTextNode_RxExtensionSpec: QuickSpec {
                 Observable.just(nil)
                     .bind(to: textNode4.rx.attributedText)
                     .disposed(by: disposeBag)
+                
+                textNode5.attributedText = NSAttributedString(string: "car")
+                textNode5.delegate?.editableTextNodeDidUpdateText?(textNode5)
             }
             
             it("should be emit expected event") {
@@ -51,6 +56,8 @@ class ASEditableTextNode_RxExtensionSpec: QuickSpec {
                 expect(textNode2.attributedText?.string).to(beNil())
                 expect(textNode3.attributedText?.string).to(equal("banana"))
                 expect(textNode4.attributedText?.string).to(beNil())
+                expect(try? textNode5.rx.attributedText.filter { $0 != nil }.toBlocking().first()??.string)
+                    .to(equal("car"))
             }
         }
     }

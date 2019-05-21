@@ -10,53 +10,12 @@ import AsyncDisplayKit
 import RxSwift
 import RxCocoa
 
-// This should be only used from `MainScheduler`
-final class ASControlTarget<Control: ASControlNode>: _RXKVOObserver, Disposable {
-    
-    typealias Callback = (Control) -> Void
-    
-    let selector = #selector(eventHandler(_:))
-    
-    weak var controlNode: Control?
-    var callback: Callback?
-    
-    init(_ controlNode: Control,
-         _ eventType: ASControlNodeEvent,
-         callback: @escaping Callback) {
-        
-        self.controlNode = controlNode
-        self.callback = callback
-        super.init()
-        controlNode.addTarget(self,
-                              action: selector,
-                              forControlEvents: eventType)
-        
-        let method = self.method(for: selector)
-        if method == nil {
-            fatalError("Can't find method")
-        }
-    }
-    
-    @objc func eventHandler(_ sender: UIGestureRecognizer) {
-        
-        if let callback = self.callback, let controlNode = self.controlNode {
-            callback(controlNode)
-        }
-    }
-    
-    override func dispose() {
-        
-        super.dispose()
-        self.controlNode?.removeTarget(self,
-                                       action: selector,
-                                       forControlEvents: .allEvents)
-        self.callback = nil
-    }
-}
-
 extension Reactive where Base: ASControlNode {
     
-    public func event(_ type: ASControlNodeEvent) -> ControlEvent<Base> {
+    /// Reactive wrapper for target action pattern.
+    ///
+    /// - parameter controlEvents: Filter for observed ASControlNodeEvent types.
+    public func controlEvent(_ controlEvents: ASControlNodeEvent) -> ControlEvent<Base> {
         
         let source: Observable<Base> = Observable
             .create { [weak control = self.base] observer in
@@ -67,11 +26,11 @@ extension Reactive where Base: ASControlNode {
                     return Disposables.create()
                 }
                 
-                let observer = ASControlTarget(control, type) { control in
+                let controlTarget = ASControlTarget(control, controlEvents) { control in
                     observer.on(.next(control))
                 }
                 
-                return observer
+                return Disposables.create(with: controlTarget.dispose)
             }
             .takeUntil(deallocated)
         
@@ -80,12 +39,12 @@ extension Reactive where Base: ASControlNode {
     
     public var tap: Observable<Void> {
         
-        return self.event(.touchUpInside).map { _ in return }
+        return self.controlEvent(.touchUpInside).map { _ in return }
     }
     
     public func tap(to relay: PublishRelay<()>) -> Disposable {
         
-        return self.event(.touchUpInside)
+        return self.controlEvent(.touchUpInside)
             .map { _ in return }
             .asSignal(onErrorJustReturn: ())
             .emit(to: relay)

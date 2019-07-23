@@ -19,7 +19,7 @@ extension Reactive where Base: ASDisplayNode {
             .asObservable()
     }
     
-    public var hide: ASBinder<Bool> {
+    public var isHidden: ASBinder<Bool> {
         
         return ASBinder(self.base) { node, isHidden in
             node.isHidden = isHidden

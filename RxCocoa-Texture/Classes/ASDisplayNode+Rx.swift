@@ -36,46 +36,40 @@ extension Reactive where Base: ASDisplayNode {
 
 extension Reactive where Base: ASDisplayNode {
     
-    public var didEnterPreloadState: Observable<Void> {
+    public var didEnterPreloadState: ControlEvent<Void> {
         
-        return self.methodInvoked(#selector(Base.didEnterPreloadState))
-            .map { _ in return }
-            .asObservable()
+        let source =  self.methodInvoked(#selector(Base.didEnterPreloadState)).map { _ in return }
+        return ControlEvent(events: source)
     }
     
-    public var didEnterDisplayState: Observable<Void> {
+    public var didEnterDisplayState: ControlEvent<Void> {
         
-        return self.methodInvoked(#selector(Base.didEnterDisplayState))
-            .map { _ in return }
-            .asObservable()
+        let source =  self.methodInvoked(#selector(Base.didEnterDisplayState)).map { _ in return }
+        return ControlEvent(events: source)
     }
     
-    public var didEnterVisibleState: Observable<Void> {
+    public var didEnterVisibleState: ControlEvent<Void> {
         
-        return self.methodInvoked(#selector(Base.didEnterVisibleState))
-            .map { _ in return }
-            .asObservable()
+        let source =  self.methodInvoked(#selector(Base.didEnterVisibleState)).map { _ in return }
+        return ControlEvent(events: source)
     }
     
-    public var didExitVisibleState: Observable<Void> {
+    public var didExitVisibleState: ControlEvent<Void> {
         
-        return self.methodInvoked(#selector(Base.didExitVisibleState))
-            .map { _ in return }
-            .asObservable()
+        let source =  self.methodInvoked(#selector(Base.didExitVisibleState)).map { _ in return }
+        return ControlEvent(events: source)
     }
     
-    public var didExitDisplayState: Observable<Void> {
+    public var didExitDisplayState: ControlEvent<Void> {
         
-        return self.methodInvoked(#selector(Base.didExitDisplayState))
-            .map { _ in return }
-            .asObservable()
+        let source =  self.methodInvoked(#selector(Base.didExitDisplayState)).map { _ in return }
+        return ControlEvent(events: source)
     }
     
-    public var didExitPreloadState: Observable<Void> {
+    public var didExitPreloadState: ControlEvent<Void> {
         
-        return self.methodInvoked(#selector(Base.didEnterPreloadState))
-            .map { _ in return }
-            .asObservable()
+        let source =  self.methodInvoked(#selector(Base.didEnterPreloadState)).map { _ in return }
+        return ControlEvent(events: source)
     }
 }
 

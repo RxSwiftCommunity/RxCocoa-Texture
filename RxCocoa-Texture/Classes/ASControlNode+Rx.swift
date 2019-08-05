@@ -37,9 +37,10 @@ extension Reactive where Base: ASControlNode {
         return ControlEvent(events: source)
     }
     
-    public var tap: Observable<Void> {
+    public var tap: ControlEvent<Void> {
         
-        return self.controlEvent(.touchUpInside).map { _ in return }
+        let source = self.controlEvent(.touchUpInside).map { _ in return }
+        return ControlEvent(events: source)
     }
     
     public func tap(to relay: PublishRelay<()>) -> Disposable {

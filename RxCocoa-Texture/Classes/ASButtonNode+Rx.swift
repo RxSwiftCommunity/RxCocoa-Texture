@@ -9,7 +9,6 @@ import AsyncDisplayKit
 import RxSwift
 import RxCocoa
 import UIKit
-import PINRemoteImage
 
 /** refer
  public static var normal: UIControlState { get }

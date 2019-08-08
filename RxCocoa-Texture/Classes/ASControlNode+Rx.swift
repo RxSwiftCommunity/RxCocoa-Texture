@@ -98,11 +98,21 @@ extension Reactive where Base: ASControlNode {
         }
     }
     
-    public var isHighlighted: ASBinder<Bool> {
-        
-        return ASBinder(self.base) { node, isHighlighted in
-            node.isHighlighted = isHighlighted
+    public var isHighlighted: ControlProperty<Bool> {
+
+      let source = self
+        .methodInvoked(#selector(setter: ASControlNode.isHighlighted))
+        .map { [weak base] _ in base?.isHighlighted }
+        .flatMap { _isHighlighted -> Observable<Bool> in
+          guard let isHighlighted = _isHighlighted else { return Observable.empty() }
+          return Observable.just(isHighlighted)
         }
+
+      let binder = ASBinder(self.base) { node, isHighlighted in
+        node.isHighlighted = isHighlighted
+      }
+
+      return ControlProperty(values: source, valueSink: binder)
     }
     
     public var isSelected: ASBinder<Bool> {

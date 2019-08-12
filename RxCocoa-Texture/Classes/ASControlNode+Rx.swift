@@ -100,9 +100,8 @@ extension Reactive where Base: ASControlNode {
     
     public var isHighlighted: ControlProperty<Bool> {
 
-        // .touchDownRepeat becaused of ASControlNode.touchesBegan(_:with:)
         return self.controlProperty(
-            editingEvents: [.touchDown, .touchDownRepeat, .touchUpInside, .touchCancel],
+            editingEvents: [.touchDown, .touchUpInside, .touchCancel],
             getter: { control in
                 control.isHighlighted
             },

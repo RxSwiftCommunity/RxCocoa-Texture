@@ -187,6 +187,28 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
                 
                 expect(controlNode.isHighlighted).to(beFalse())
             }
+
+            it("should observe highlight/unhighlight") {
+
+                // given
+                var isHighlighted: Bool = false
+                controlNode.isEnabled = true
+                controlNode.rx.isHighlighted
+                    .subscribe(onNext: { isHighlighted = $0 })
+                    .disposed(by: disposedBag)
+
+                // when & then - Touch down/up/cancel
+                controlNode.touchesBegan([UITouch()], with: nil)
+                expect(isHighlighted).to(beTrue())
+
+                controlNode.touchesBegan([UITouch()], with: nil)
+                controlNode.touchesEnded([UITouch()], with: nil)
+                expect(isHighlighted).to(beFalse())
+
+                controlNode.touchesBegan([UITouch()], with: nil)
+                controlNode.touchesCancelled([UITouch()], with: nil)
+                expect(isHighlighted).to(beFalse())
+            }
             
             it("should be selected/non-selected") {
                 

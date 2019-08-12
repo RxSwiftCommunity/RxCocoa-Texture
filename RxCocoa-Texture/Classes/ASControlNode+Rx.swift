@@ -36,6 +36,39 @@ extension Reactive where Base: ASControlNode {
         
         return ControlEvent(events: source)
     }
+
+    /// Creates a `ControlProperty` that is triggered by target/action pattern value updates.
+    ///
+    /// - parameter controlEvents: ASControlNodeEvents that trigger value update sequence elements.
+    /// - parameter getter: Property value getter.
+    /// - parameter setter: Property value setter.
+    public func controlProperty<T>(
+        editingEvents: ASControlNodeEvent,
+        getter: @escaping (Base) -> T,
+        setter: @escaping (Base, T) -> ()
+    ) -> ControlProperty<T> {
+        let source: Observable<T> = Observable.create { [weak weakControl = base] observer in
+            guard let control = weakControl else {
+                observer.on(.completed)
+                return Disposables.create()
+            }
+
+            observer.on(.next(getter(control)))
+
+            let controlTarget = ASControlTarget(control, editingEvents) { _ in
+                if let control = weakControl {
+                    observer.on(.next(getter(control)))
+                }
+            }
+
+            return Disposables.create(with: controlTarget.dispose)
+        }
+        .takeUntil(deallocated)
+
+        let bindingObserver = ASBinder(base, binding: setter)
+
+        return ControlProperty<T>(values: source, valueSink: bindingObserver)
+    }
     
     public var tap: ControlEvent<Void> {
         

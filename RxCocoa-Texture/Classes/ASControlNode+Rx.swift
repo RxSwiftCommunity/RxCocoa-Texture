@@ -100,19 +100,16 @@ extension Reactive where Base: ASControlNode {
     
     public var isHighlighted: ControlProperty<Bool> {
 
-      let source = self
-        .methodInvoked(#selector(setter: ASControlNode.isHighlighted))
-        .map { [weak base] _ in base?.isHighlighted }
-        .flatMap { _isHighlighted -> Observable<Bool> in
-          guard let isHighlighted = _isHighlighted else { return Observable.empty() }
-          return Observable.just(isHighlighted)
-        }
-
-      let binder = ASBinder(self.base) { node, isHighlighted in
-        node.isHighlighted = isHighlighted
-      }
-
-      return ControlProperty(values: source, valueSink: binder)
+        // .touchDownRepeat becaused of ASControlNode.touchesBegan(_:with:)
+        return self.controlProperty(
+            editingEvents: [.touchDown, .touchDownRepeat, .touchUpInside, .touchCancel],
+            getter: { control in
+                control.isHighlighted
+            },
+            setter: { control, isHighlighted in
+                control.isHighlighted = isHighlighted
+            }
+        )
     }
     
     public var isSelected: ASBinder<Bool> {

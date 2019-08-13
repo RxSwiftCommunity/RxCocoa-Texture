@@ -189,6 +189,17 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
             }
 
             it("should observe highlight/unhighlight") {
+                final class UITouchStub: UITouch {
+                    private let _tapCount: Int
+                    override var tapCount: Int {
+                        return self._tapCount
+                    }
+
+                    override init() {
+                        self._tapCount = 1 // becaused of ASControlNode.touchesBegan(_:with:)
+                        super.init()
+                    }
+                }
 
                 // given
                 var isHighlighted: Bool = false
@@ -198,15 +209,15 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
                     .disposed(by: disposedBag)
 
                 // when & then - Touch down/up/cancel
-                controlNode.touchesBegan([UITouch()], with: nil)
+                controlNode.touchesBegan([UITouchStub()], with: nil)
                 expect(isHighlighted).to(beTrue())
 
-                controlNode.touchesBegan([UITouch()], with: nil)
-                controlNode.touchesEnded([UITouch()], with: nil)
+                controlNode.touchesBegan([UITouchStub()], with: nil)
+                controlNode.touchesEnded([UITouchStub()], with: nil)
                 expect(isHighlighted).to(beFalse())
 
-                controlNode.touchesBegan([UITouch()], with: nil)
-                controlNode.touchesCancelled([UITouch()], with: nil)
+                controlNode.touchesBegan([UITouchStub()], with: nil)
+                controlNode.touchesCancelled([UITouchStub()], with: nil)
                 expect(isHighlighted).to(beFalse())
             }
             

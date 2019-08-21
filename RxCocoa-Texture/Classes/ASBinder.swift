@@ -94,12 +94,15 @@ extension ObservableType {
         to relays: [PublishRelay<Element>],
         setNeedsLayout node: ASDisplayNode?) -> Disposable {
         
+        weak var weakNode = node
+        
         return subscribe { e in
             switch e {
             case let .next(element):
                 relays.forEach {
                     $0.accept(element)
                 }
+                weakNode?.rx_setNeedsLayout()
             case let .error(error):
                 let log = "Binding error to behavior relay: \(error)"
                 #if DEBUG
@@ -131,12 +134,15 @@ extension ObservableType {
         to relays: [BehaviorRelay<Element>],
         setNeedsLayout node: ASDisplayNode?) -> Disposable {
         
+        weak var weakNode = node
+        
         return subscribe { e in
             switch e {
             case let .next(element):
                 relays.forEach {
                     $0.accept(element)
                 }
+                weakNode?.rx_setNeedsLayout()
             case let .error(error):
                 let log = "Binding error to behavior relay: \(error)"
                 #if DEBUG
@@ -155,45 +161,34 @@ extension ObservableType {
     
     public func bind<Observer: ASObserverType>(
         to observers: Observer...,
-        directlyBind: Bool = false,
         setNeedsLayout node: ASDisplayNode? = nil) -> Disposable where Observer.Element == Element {
         
         return self.bind(
             to: observers,
-            directlyBind: directlyBind,
             setNeedsLayout: node
         )
     }
     
     public func bind<Observer: ASObserverType>(
         to observers: Observer...,
-        directlyBind: Bool = false,
         setNeedsLayout node: ASDisplayNode? = nil) -> Disposable where Observer.Element == Element? {
         
         return self.map { $0 as Element? }
             .bind(
                 to: observers,
-                directlyBind: directlyBind,
                 setNeedsLayout: node
         )
     }
     
     private func bind<Observer: ASObserverType>(
         to observers: [Observer],
-        directlyBind: Bool = false,
         setNeedsLayout node: ASDisplayNode? = nil) -> Disposable where Observer.Element == Element {
         
         weak var weakNode = node
         
         return self.subscribe { event in
-            
             observers.forEach {
-                if directlyBind, let value = (self as? BehaviorRelay<Self.Element>)?.value {
-                    $0.directlyBinding(value)
-                }
-                
                 $0.on(event, node: weakNode)
-                
             }
         }
     }

@@ -21,7 +21,6 @@ extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingSt
         return self.asSharedSequence()
             .asObservable()
             .bind(to: observer,
-                  directlyBind: directlyBind,
                   setNeedsLayout: node)
     }
     
@@ -33,7 +32,6 @@ extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingSt
             .asObservable()
             .map { $0 as Element? }
             .bind(to: observer,
-                  directlyBind: directlyBind,
                   setNeedsLayout: node)
     }
 }

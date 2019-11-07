@@ -27,11 +27,11 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
                 let scheduler = TestScheduler.init(initialClock: 0)
                 
                 let emitObserver = scheduler
-                    .createHotObservable([next(100, ASControlNodeEvent.touchUpInside),
-                                          next(200, ASControlNodeEvent.touchDown),
-                                          next(300, ASControlNodeEvent.touchUpOutside),
-                                          next(400, ASControlNodeEvent.touchDragInside),
-                                          next(500, ASControlNodeEvent.touchCancel)])
+                    .createHotObservable([.next(100, ASControlNodeEvent.touchUpInside),
+                                          .next(200, ASControlNodeEvent.touchDown),
+                                          .next(300, ASControlNodeEvent.touchUpOutside),
+                                          .next(400, ASControlNodeEvent.touchDragInside),
+                                          .next(500, ASControlNodeEvent.touchCancel)])
                 // etc
                 
                 emitObserver.subscribe(onNext: { event in
@@ -57,23 +57,23 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
                 scheduler.start()
                 
                 let expectEvent: [Recorded<Event<ASControlNodeEvent>>] = [
-                    next(100, .touchUpInside)
+                    .next(100, .touchUpInside)
                 ]
                 
                 let expectEvent2: [Recorded<Event<ASControlNodeEvent>>] = [
-                    next(200, .touchDown)
+                    .next(200, .touchDown)
                 ]
                 
                 let expectEvent3: [Recorded<Event<ASControlNodeEvent>>] = [
-                    next(300, .touchUpOutside)
+                    .next(300, .touchUpOutside)
                 ]
                 
                 let expectEvent4: [Recorded<Event<ASControlNodeEvent>>] = [
-                    next(400, .touchDragInside)
+                    .next(400, .touchDragInside)
                 ]
                 
                 let expectEvent5: [Recorded<Event<ASControlNodeEvent>>] = [
-                    next(500, .touchCancel)
+                    .next(500, .touchCancel)
                 ]
                 
                 XCTAssertEqual(outputEvent.events, expectEvent)
@@ -88,9 +88,9 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
                 let scheduler = TestScheduler.init(initialClock: 0)
                 
                 let emitObserver = scheduler
-                    .createHotObservable([next(100, ()),
-                                          next(200, ()),
-                                          next(300, ())])
+                    .createHotObservable([.next(100, ()),
+                                          .next(200, ()),
+                                          .next(300, ())])
                 
                 emitObserver.subscribe(onNext: { _ in
                     controlNode.sendActions(forControlEvents: .touchUpInside, with: nil)
@@ -102,9 +102,9 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
                 scheduler.start()
                 
                 let expectEvent: [Recorded<Event<Bool>>] = [
-                    next(100, true),
-                    next(200, true),
-                    next(300, true)
+                    .next(100, true),
+                    .next(200, true),
+                    .next(300, true)
                 ]
                 
                 XCTAssertEqual(outputEvent.events, expectEvent)
@@ -119,9 +119,9 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
                 accepter = emitter.map { _ in return true }.asObservable()
                 
                 let emitObserver = scheduler
-                    .createHotObservable([next(100, ()),
-                                          next(200, ()),
-                                          next(300, ())])
+                    .createHotObservable([.next(100, ()),
+                                          .next(200, ()),
+                                          .next(300, ())])
                 
                 emitObserver.subscribe(onNext: { _ in
                     controlNode.sendActions(forControlEvents: .touchUpInside, with: nil)
@@ -134,9 +134,9 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
                 scheduler.start()
                 
                 let expectEvent: [Recorded<Event<Bool>>] = [
-                    next(100, true),
-                    next(200, true),
-                    next(300, true)
+                    .next(100, true),
+                    .next(200, true),
+                    .next(300, true)
                 ]
                 
                 XCTAssertEqual(outputEvent.events, expectEvent)
@@ -242,8 +242,8 @@ class ASControlNode_RxExtensionSpecSpec: QuickSpec {
 extension TestScheduler {
     /// Creates a `TestableObserver` instance which immediately subscribes
     /// to the `source` and disposes the subscription at virtual time 100000.
-    func record<O: ObservableConvertibleType>(_ source: O) -> TestableObserver<O.E> {
-        let observer = self.createObserver(O.E.self)
+    func record<O: ObservableConvertibleType>(_ source: O) -> TestableObserver<O.Element> {
+        let observer = self.createObserver(O.Element.self)
         let disposable = source.asObservable().bind(to: observer)
         self.scheduleAt(100000) {
             disposable.dispose()

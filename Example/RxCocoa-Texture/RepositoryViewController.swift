@@ -48,7 +48,7 @@ class RepositoryViewController: ASViewController<ASTableNode> {
     
     func loadMoreRepo(since: Int?) {
         _ = RepoService.loadRepository(params: [.since(since)])
-            .delay(0.5, scheduler: MainScheduler.asyncInstance)
+            .delay(.milliseconds(500), scheduler: MainScheduler.asyncInstance)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
             .map { $0.map { RepositoryViewModel2(repository: $0) } }
             .observeOn(MainScheduler.instance)

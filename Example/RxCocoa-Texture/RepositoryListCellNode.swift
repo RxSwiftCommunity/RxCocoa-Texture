@@ -66,25 +66,21 @@ class RepositoryListCellNode: ASCellNode {
         self.automaticallyManagesSubnodes = true
         
         viewModel.profileURL
-            .bind(to: userProfileNode.rx.url,
-                  directlyBind: true)
+            .bind(to: userProfileNode.rx.url)
             .disposed(by: disposeBag)
         
         viewModel.username
             .bind(to: usernameNode.rx.text(Node.usernameAttributes),
-                  directlyBind: true,
                   setNeedsLayout: self)
             .disposed(by: disposeBag)
         
         viewModel.desc
             .bind(to: descriptionNode.rx.text(Node.descAttributes),
-                  directlyBind: true,
                   setNeedsLayout: self)
             .disposed(by: disposeBag)
         
         viewModel.status
             .bind(to: statusNode.rx.text(Node.statusAttributes),
-                  directlyBind: true,
                   setNeedsLayout: self)
             .disposed(by: disposeBag)
         
@@ -98,6 +94,7 @@ extension RepositoryListCellNode: ASTextNodeDelegate {
     
     func textNodeTappedTruncationToken(_ textNode: ASTextNode) {
         textNode.maximumNumberOfLines = 0
+        self.recursivelyEnsureDisplaySynchronously(true)
         self.setNeedsLayout()
     }
 }

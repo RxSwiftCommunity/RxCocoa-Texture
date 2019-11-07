@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 public struct ASBinder<Value>: ASObserverType {
+    
     public typealias E = Value
     private let _binding: (Event<Value>, ASDisplayNode?) -> ()
     private var _directlyBinding: (Value?) -> ()
@@ -17,6 +18,7 @@ public struct ASBinder<Value>: ASObserverType {
     public init<Target: AnyObject>(_ target: Target,
                                    scheduler: ImmediateSchedulerType = MainScheduler(),
                                    binding: @escaping (Target, Value) -> ()) {
+        
         weak var weakTarget = target
         
         _directlyBinding = { value in
@@ -40,9 +42,9 @@ public struct ASBinder<Value>: ASObserverType {
                 }
             case .error(let error):
                 #if DEBUG
-                    fatalError(error.localizedDescription)
+                fatalError(error.localizedDescription)
                 #else
-                    print(error)
+                print(error)
                 #endif
             case .completed:
                 break
@@ -51,119 +53,62 @@ public struct ASBinder<Value>: ASObserverType {
     }
     
     public func on(_ event: Event<Value>, node: ASDisplayNode?) {
+        
         _binding(event, node)
     }
     
     public func on(_ event: Event<Value>) {
+        
         _binding(event, nil)
     }
     
     public func directlyBinding(_ element: Value?) {
+        
         _directlyBinding(element)
     }
 }
 
 public protocol ASObserverType: ObserverType {
-    func on(_ event: Event<E>, node: ASDisplayNode?)
-    func directlyBinding(_ element: E?)
+    
+    func on(_ event: Event<Element>, node: ASDisplayNode?)
+    func directlyBinding(_ element: Element?)
 }
 
 extension ObservableType {
-    public func bind<O>(to observer: O,
-                        directlyBind: Bool = false,
-                        setNeedsLayout node: ASDisplayNode? = nil)
-        -> Disposable where O : ASObserverType, Self.E == O.E {
-            weak var weakNode = node
-            
-            if directlyBind, let value = (self as? BehaviorRelay<Self.E>)?.value {
-                observer.directlyBinding(value)
-            }
+    
+    public func bind(
+        to relays: PublishRelay<Element>...,
+        setNeedsLayout node: ASDisplayNode?) -> Disposable {
         
-            return subscribe { event in
-                switch event {
-                case .next:
-                    observer.on(event, node: weakNode)
-                case .error(let error):
-                    #if DEBUG
-                        fatalError(error.localizedDescription)
-                    #else
-                        print(error)
-                    #endif
-                case .completed:
-                    break
-                }
-            }
+        return bind(to: relays, setNeedsLayout: node)
     }
     
-    public func bind<O: ASObserverType>(to observer: O,
-                                        directlyBind: Bool = false,
-                                        setNeedsLayout node: ASDisplayNode? = nil)
-        -> Disposable where O.E == E? {
-            weak var weakNode = node
-            
-            if directlyBind, let value = (self as? BehaviorRelay<Self.E>)?.value {
-                observer.directlyBinding(value)
-            }
-            
-            return self.map { $0 }.subscribe { observerEvent in
-                switch observerEvent {
-                case .next:
-                    observer.on(observerEvent.map({ Optional<Self.E>($0) }),
-                                node: weakNode)
-                case .error(let error):
-                    #if DEBUG
-                        fatalError(error.localizedDescription)
-                    #else
-                        print(error)
-                    #endif
-                case .completed:
-                    break
-                }
-            }
+    public func bind(
+        to relays: PublishRelay<Element?>...,
+        setNeedsLayout node: ASDisplayNode?) -> Disposable {
+        
+        return self.map { $0 as Element? }.bind(to: relays, setNeedsLayout: node)
     }
     
-    public func bind(to relay: PublishRelay<E>,
-                     setNeedsLayout node: ASDisplayNode?) -> Disposable {
+    private func bind(
+        to relays: [PublishRelay<Element>],
+        setNeedsLayout node: ASDisplayNode?) -> Disposable {
+        
         weak var weakNode = node
+        
         return subscribe { e in
             switch e {
             case let .next(element):
-                relay.accept(element)
-                weakNode?.setNeedsLayout()
-            case let .error(error):
-                let log = "Binding error to publish relay: \(error)"
-                #if DEBUG
-                    fatalError(log)
-                #else
-                    print(log)
-                #endif
-            case .completed:
-                break
-            }
-        }
-    }
-    
-    public func bind(to relay: PublishRelay<E?>,
-                     setNeedsLayout node: ASDisplayNode? = nil) -> Disposable {
-        weak var weakNode = node
-        return self.map { $0 as E? }
-            .bind(to: relay, setNeedsLayout: weakNode)
-    }
-    
-    public func bind(to relay: BehaviorRelay<E>,
-                     setNeedsLayout node: ASDisplayNode? = nil) -> Disposable {
-        weak var weakNode = node
-        return subscribe { e in
-            switch e {
-            case let .next(element):
-                relay.accept(element)
-                weakNode?.setNeedsLayout()
+                relays.forEach {
+                    $0.accept(element)
+                }
+                weakNode?.rx_setNeedsLayout()
             case let .error(error):
                 let log = "Binding error to behavior relay: \(error)"
                 #if DEBUG
-                    fatalError(log)
+                fatalError(log)
                 #else
-                    print(log)
+                print(log)
                 #endif
             case .completed:
                 break
@@ -171,13 +116,80 @@ extension ObservableType {
         }
     }
     
-    public func bind(to relay: BehaviorRelay<E?>,
-                     setNeedsLayout node: ASDisplayNode? = nil) -> Disposable {
+    public func bind(
+        to relays: BehaviorRelay<Element>...,
+        setNeedsLayout node: ASDisplayNode?) -> Disposable {
+        
+        return self.bind(to: relays, setNeedsLayout: node)
+    }
+    
+    public func bind(
+        to relays: BehaviorRelay<Element?>...,
+        setNeedsLayout node: ASDisplayNode?) -> Disposable {
+        
+        return self.map { $0 as Element? }.bind(to: relays, setNeedsLayout: node)
+    }
+    
+    private func bind(
+        to relays: [BehaviorRelay<Element>],
+        setNeedsLayout node: ASDisplayNode?) -> Disposable {
+        
         weak var weakNode = node
-        return self.map { $0 as E? }
-            .bind(to: relay, setNeedsLayout: weakNode)
+        
+        return subscribe { e in
+            switch e {
+            case let .next(element):
+                relays.forEach {
+                    $0.accept(element)
+                }
+                weakNode?.rx_setNeedsLayout()
+            case let .error(error):
+                let log = "Binding error to behavior relay: \(error)"
+                #if DEBUG
+                fatalError(log)
+                #else
+                print(log)
+                #endif
+            case .completed:
+                break
+            }
+        }
     }
 }
 
-
-
+extension ObservableType {
+    
+    public func bind<Observer: ASObserverType>(
+        to observers: Observer...,
+        setNeedsLayout node: ASDisplayNode? = nil) -> Disposable where Observer.Element == Element {
+        
+        return self.bind(
+            to: observers,
+            setNeedsLayout: node
+        )
+    }
+    
+    public func bind<Observer: ASObserverType>(
+        to observers: Observer...,
+        setNeedsLayout node: ASDisplayNode? = nil) -> Disposable where Observer.Element == Element? {
+        
+        return self.map { $0 as Element? }
+            .bind(
+                to: observers,
+                setNeedsLayout: node
+        )
+    }
+    
+    private func bind<Observer: ASObserverType>(
+        to observers: [Observer],
+        setNeedsLayout node: ASDisplayNode? = nil) -> Disposable where Observer.Element == Element {
+        
+        weak var weakNode = node
+        
+        return self.subscribe { event in
+            observers.forEach {
+                $0.on(event, node: weakNode)
+            }
+        }
+    }
+}

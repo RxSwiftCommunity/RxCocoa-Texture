@@ -16,24 +16,22 @@ extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingSt
     
     public func drive<O: ASObserverType>(_ observer: O,
                                          directlyBind: Bool = false,
-                                         setNeedsLayout node: ASDisplayNode? = nil) -> Disposable where O.E == E {
+                                         setNeedsLayout node: ASDisplayNode? = nil) -> Disposable where O.Element == Element {
         MainScheduler.ensureExecutingOnScheduler(errorMessage: errorMessage)
         return self.asSharedSequence()
             .asObservable()
             .bind(to: observer,
-                  directlyBind: directlyBind,
                   setNeedsLayout: node)
     }
     
     public func drive<O: ASObserverType>(_ observer: O,
                                          directlyBind: Bool = false,
-                                         setNeedsLayout node: ASDisplayNode? = nil) -> Disposable where O.E == E? {
+                                         setNeedsLayout node: ASDisplayNode? = nil) -> Disposable where O.Element == Element? {
         MainScheduler.ensureExecutingOnScheduler(errorMessage: errorMessage)
         return self.asSharedSequence()
             .asObservable()
-            .map { $0 as E? }
+            .map { $0 as Element? }
             .bind(to: observer,
-                  directlyBind: directlyBind,
                   setNeedsLayout: node)
     }
 }

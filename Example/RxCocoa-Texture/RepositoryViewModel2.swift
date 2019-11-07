@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxCocoa_Texture
 
 class RepositoryViewModel2 {
     
@@ -39,10 +40,10 @@ class RepositoryViewModel2 {
             .asObservable()
             .share(replay: 1, scope: .whileConnected)
         
-repoObserver
-    .map { $0?.user?.username }
-    .bind(to: username)
-    .disposed(by: disposeBag)
+        repoObserver
+            .map { $0?.user?.username }
+            .bind(to: username)
+            .disposed(by: disposeBag)
         
         repoObserver
             .map { $0?.user?.profileURL }
@@ -72,7 +73,7 @@ repoObserver
         self.updateRepository.subscribe(onNext: { newRepo in
             RepoProvider.update(newRepo)
         }).disposed(by: disposeBag)
-
+        
         updateUsername.withLatestFrom(repoObserver) { ($0, $1) }
             .subscribe(onNext: { text, repo in
                 guard let repo = repo else { return }

@@ -30,7 +30,7 @@ extension Reactive where Base: ASEditableTextNode {
             return textChanged.startWith(attrText)
         }
         
-        let bindingObserver = ASBinder(self.base) { node, attributedText in
+        let bindingObserver = ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, attributedText in
             node.attributedText = attributedText
         }
         
@@ -39,7 +39,7 @@ extension Reactive where Base: ASEditableTextNode {
     
     public func text(_ attributes: [NSAttributedString.Key: Any]?) -> ASBinder<String?> {
         
-        return ASBinder(self.base) { node, text in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, text in
             guard let text = text else {
                 node.attributedText = nil
                 return

@@ -15,14 +15,14 @@ extension Reactive where Base: ASTextNode2 {
     
     public var attributedText: ASBinder<NSAttributedString?> {
         
-        return ASBinder(self.base) { node, attributedText in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, attributedText in
             node.attributedText = attributedText
         }
     }
     
     public func text(_ attributes: [NSAttributedString.Key: Any]?) -> ASBinder<String?> {
         
-        return ASBinder(self.base) { node, text in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, text in
             guard let text = text else {
                 node.attributedText = nil
                 return

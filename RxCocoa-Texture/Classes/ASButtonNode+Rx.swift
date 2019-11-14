@@ -25,7 +25,7 @@ extension Reactive where Base: ASButtonNode {
     // apply attributedText on all control state
     public var attributedText: ASBinder<NSAttributedString?> {
         
-        return ASBinder(self.base) { node, attributedText in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, attributedText in
             self.setAllAttributedTitle(node, attributedText)
         }
     }
@@ -33,7 +33,7 @@ extension Reactive where Base: ASButtonNode {
     // apply attributedText on targeted control state
     public func attributedText(_ controlState: UIControl.State) -> ASBinder<NSAttributedString?> {
         
-        return ASBinder(self.base) { node, attributedText in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, attributedText in
             node.setAttributedTitle(attributedText, for: controlState)
         }
     }
@@ -41,7 +41,7 @@ extension Reactive where Base: ASButtonNode {
     // apply text with attribute on all control state
     public func text(_ attribute: [NSAttributedString.Key: Any]?) -> ASBinder<String?> {
         
-        return ASBinder(self.base) { node, text in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, text in
             guard let text = text else {
                 self.setAllAttributedTitle(node, nil)
                 return
@@ -56,7 +56,7 @@ extension Reactive where Base: ASButtonNode {
     public func text(_ attribute: [NSAttributedString.Key: Any]?,
                      target: UIControl.State) -> ASBinder<String?> {
         
-        return ASBinder(self.base) { node, text in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, text in
             guard let text = text else {
                 node.setAttributedTitle(nil, for: target)
                 return
@@ -70,7 +70,7 @@ extension Reactive where Base: ASButtonNode {
     // apply text with attributes
     public func text(applyList: [ASControlStateType]) -> ASBinder<String?> {
         
-        return ASBinder(self.base) { node, text in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, text in
             guard let text = text else {
                 for apply in applyList {
                     node.setAttributedTitle(nil,
@@ -90,21 +90,21 @@ extension Reactive where Base: ASButtonNode {
     
     public var image: ASBinder<UIImage?> {
         
-        return ASBinder(self.base) { node, image in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, image in
             self.setAllImage(node, image: image)
         }
     }
     
     public var backgroundImage: ASBinder<UIImage?> {
         
-        return ASBinder(self.base) { node, image in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, image in
             self.setAllBackgroundImage(node, image: image)
         }
     }
     
     public func image(applyList: [ASControlStateType]) -> ASBinder<UIImage?> {
         
-        return ASBinder(self.base) { node, image in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, image in
             
             guard let image = image  else {
                 for apply in applyList {
@@ -121,7 +121,7 @@ extension Reactive where Base: ASButtonNode {
     }
     
     public func backgroundImage(applyList: [ASControlStateType]) -> ASBinder<UIImage?> {
-        return ASBinder(self.base) { node, image in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, image in
             
             guard let image = image  else {
                 for apply in applyList {

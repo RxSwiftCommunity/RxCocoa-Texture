@@ -25,11 +25,11 @@ public struct ASBinder<Value>: ASObserverType {
             case .next(let element):
                 _ = scheduler.schedule(element) { element in
                     if let target = weakTarget {
+                        binding(target, element)
                         ASPerformBlockOnMainThread {
-                            binding(target, element)
+                            node?.rx_setNeedsLayout()
                         }
                     }
-                    node?.rx_setNeedsLayout()
                     return Disposables.create()
                 }
             case .error(let error):

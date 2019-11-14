@@ -13,7 +13,7 @@ extension Reactive where Base: ASImageNode {
 
     public var image: ASBinder<UIImage?> {
         
-        return ASBinder(self.base) { node, image in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, image in
             node.image = image
         }
     }

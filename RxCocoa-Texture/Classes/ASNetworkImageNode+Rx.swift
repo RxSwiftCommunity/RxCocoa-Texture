@@ -13,14 +13,14 @@ extension Reactive where Base: ASNetworkImageNode {
     
     public var url: ASBinder<URL?> {
         
-        return ASBinder(self.base) { node, url in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, url in
             node.setURL(url, resetToDefault: true)
         }
     }
     
     public func url(resetToDefault: Bool) -> ASBinder<URL?> {
         
-        return ASBinder(self.base) { node, url in
+        return ASBinder(self.base, scheduler: CurrentThreadScheduler.instance) { node, url in
             node.setURL(url, resetToDefault: resetToDefault)
         }
     }

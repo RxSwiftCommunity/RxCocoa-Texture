@@ -37,6 +37,8 @@
 		9BE3DFE3211E780600816FD9 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3DFE2211E780500816FD9 /* ImageDownloader.swift */; };
 		BA5756B9222CC72D00D8CBD9 /* ASDisplayNode+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5756B7222CC72200D8CBD9 /* ASDisplayNode+RxSpec.swift */; };
 		C2B9E94A4FCBBCFCA86BBE1B /* Pods_RxCocoa_Texture_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C467A356AD9535ACE740C9 /* Pods_RxCocoa_Texture_Tests.framework */; };
+		E5D9E230237D390D00E4015C /* TableTestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9E22F237D390D00E4015C /* TableTestNode.swift */; };
+		E5D9E232237D428000E4015C /* ASTableNode+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9E231237D428000E4015C /* ASTableNode+RxSpec.swift */; };
 		F77E2B9F7CE27BC62474DD2B /* Pods_RxCocoa_Texture_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64F85DE41A757B8E1C3E68C /* Pods_RxCocoa_Texture_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		BA5756B7222CC72200D8CBD9 /* ASDisplayNode+RxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASDisplayNode+RxSpec.swift"; sourceTree = "<group>"; wrapsLines = 0; };
 		CB878FDCA4BF09167F15A871 /* Pods-RxCocoa-Texture_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Tests/Pods-RxCocoa-Texture_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D34921410F2445031C571EB1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		E5D9E22F237D390D00E4015C /* TableTestNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTestNode.swift; sourceTree = "<group>"; };
+		E5D9E231237D428000E4015C /* ASTableNode+RxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASTableNode+RxSpec.swift"; sourceTree = "<group>"; };
 		F4C2FBFBDA0CE9B43659AD60 /* Pods-RxCocoa-Texture_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCocoa-Texture_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxCocoa-Texture_Example/Pods-RxCocoa-Texture_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +191,7 @@
 				9BB3ECFC22783FB7007CE252 /* BinderAndDriver+RxSpec.swift */,
 				9BB3ED01227842C5007CE252 /* ASTextNode2+RxSpec.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				E5D9E231237D428000E4015C /* ASTableNode+RxSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				9B0E1634210DADB50013EC86 /* NetworkImageTestNode.swift */,
 				9B0E1632210DADB50013EC86 /* RepositoryListCellNode.swift */,
 				9B0E1633210DADB50013EC86 /* TextTestNode.swift */,
+				E5D9E22F237D390D00E4015C /* TableTestNode.swift */,
 			);
 			name = nodes;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -507,6 +514,7 @@
 				9B0E163B210DADB70013EC86 /* NetworkImageTestNode.swift in Sources */,
 				9B0E163D210DADB70013EC86 /* EditableTextTestNode.swift in Sources */,
 				9B0E163A210DADB70013EC86 /* TextTestNode.swift in Sources */,
+				E5D9E230237D390D00E4015C /* TableTestNode.swift in Sources */,
 				9B0E162F210DAD9D0013EC86 /* RepoService.swift in Sources */,
 				9B0E1642210DADCF0013EC86 /* RepositoryViewModel.swift in Sources */,
 				9B0E1622210DAD6E0013EC86 /* RepoProvider.swift in Sources */,
@@ -528,6 +536,7 @@
 				9B0E1609210DA3F00013EC86 /* ASTextNode+RxSpec.swift in Sources */,
 				9B0E1605210DA3E30013EC86 /* ASButtonNode+RxSpec.swift in Sources */,
 				9B0E1608210DA3ED0013EC86 /* ASNetworkImageNode+RxSpec.swift in Sources */,
+				E5D9E232237D428000E4015C /* ASTableNode+RxSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

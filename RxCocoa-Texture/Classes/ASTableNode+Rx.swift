@@ -126,23 +126,6 @@ extension Reactive where Base: ASTableNode {
     }
     
     /**
-     Reactive wrapper for `delegate` message `tableNode:performAction:forRowAt:withSender`.
-     */
-    public var performAction: ControlEvent<PerformAction> {
-        let source: Observable<PerformAction> = self.delegate
-            .methodInvoked(#selector(ASTableDelegate.tableNode(_:performAction:forRowAt:withSender:)))
-            .map { parameters -> PerformAction in
-                guard let selector = parameters[1] as? Selector, let indexPath = parameters[2] as? IndexPath else {
-                    throw(RxCocoaError.castingError(object: parameters, targetType: PerformAction.self))
-                }
-                
-                return (action: selector, indexPath: indexPath, sender: parameters[3] as Any?)
-            }
-        
-        return ControlEvent(events: source)
-    }
-    
-    /**
      Reactive wrapper for `delegate` message `tableNode:willBeginBatchFetchWith:`.
      */
     public var willBeginBatchFetch: ControlEvent<ASBatchContext> {

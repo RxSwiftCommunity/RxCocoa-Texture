@@ -18,15 +18,6 @@ class ASTableNode_RxExtensionSpec: QuickSpec {
     
     var tableNode: ASTableNode!
     
-    lazy var cellNodes: [ASCellNode] = {
-        return data.map { index -> ASCellNode in
-            let node = ASCellNode()
-            node.accessibilityIdentifier = "\(index)"
-            
-            return node
-        }
-    }()
-    
     var data: [Int] {
         return (0...10).map { $0 }
     }
@@ -84,7 +75,8 @@ class ASTableNode_RxExtensionSpec: QuickSpec {
                 let emitObserver = scheduler
                     .createColdObservable([.next(100, IndexPath(item: 1, section: 0)),
                                            .next(200, IndexPath(item: 3, section: 0)),
-                                           .next(300, IndexPath(item: 2, section: 0))])
+                                           .next(300, IndexPath(item: 2, section: 0))
+                                        ])
                 
                 emitObserver.subscribe(onNext: { [weak self] event in
                     guard let self = self else {
@@ -108,7 +100,186 @@ class ASTableNode_RxExtensionSpec: QuickSpec {
         }
         
         context("table node will display node") {
-            
+            it("should be emit expected event and triggered inside reactive wrapper") {
+                let disposedBag = DisposeBag()
+                let scheduler = TestScheduler.init(initialClock: 0)
+
+                let targetToObserve = scheduler.createObserver(ASCellNode.self)
+                self.tableNode.rx.willDisplayNode.subscribe(targetToObserve).disposed(by: disposedBag)
+
+                let cellNodes = (0...2).map { offset -> ASCellNode in
+                    let cellNode = ASCellNode()
+                    cellNode.accessibilityIdentifier = "\(offset)"
+                    
+                    return cellNode
+                }
+                
+                // test emit
+                let emitObserver = scheduler
+                    .createColdObservable([.next(100, cellNodes[0]),
+                                           .next(100, cellNodes[1]),
+                                           .next(100, cellNodes[2])
+                                        ])
+
+                emitObserver.subscribe(onNext: { [weak self] event in
+                    guard let self = self else {
+                        XCTFail("self reference is missing")
+                        return
+                    }
+                    
+                    self.tableNode.delegate?.tableNode?(self.tableNode, willDisplayRowWith: event)
+                }).disposed(by: disposedBag)
+
+                scheduler.start()
+
+                XCTAssertEqual(targetToObserve.events, [
+                    .next(100, cellNodes[0]),
+                    .next(100, cellNodes[1]),
+                    .next(100, cellNodes[2])
+                ])
+            }
+        }
+        
+        context("table node did end displaying node") {
+            it("should be emit expected event and triggered inside reactive wrapper") {
+                let disposedBag = DisposeBag()
+                let scheduler = TestScheduler.init(initialClock: 0)
+
+                let targetToObserve = scheduler.createObserver(ASCellNode.self)
+                self.tableNode.rx.didEndDisplayingNode.subscribe(targetToObserve).disposed(by: disposedBag)
+
+                let cellNodes = (0...2).map { offset -> ASCellNode in
+                    let cellNode = ASCellNode()
+                    cellNode.accessibilityIdentifier = "\(offset)"
+                    
+                    return cellNode
+                }
+                
+                // test emit
+                let emitObserver = scheduler
+                    .createColdObservable([.next(100, cellNodes[0]),
+                                           .next(100, cellNodes[1]),
+                                           .next(100, cellNodes[2])
+                                        ])
+
+                emitObserver.subscribe(onNext: { [weak self] event in
+                    guard let self = self else {
+                        XCTFail("self reference is missing")
+                        return
+                    }
+                    
+                    self.tableNode.delegate?.tableNode?(self.tableNode, didEndDisplayingRowWith: event)
+                }).disposed(by: disposedBag)
+
+                scheduler.start()
+
+                XCTAssertEqual(targetToObserve.events, [
+                    .next(100, cellNodes[0]),
+                    .next(100, cellNodes[1]),
+                    .next(100, cellNodes[2])
+                ])
+            }
+        }
+        
+        context("table node did highlight row") {
+            it("should be emit expected event and triggered inside reactive wrapper") {
+                let disposedBag = DisposeBag()
+                let scheduler = TestScheduler.init(initialClock: 0)
+
+                let targetToObserve = scheduler.createObserver(IndexPath.self)
+                self.tableNode.rx.didHighlightRowAt.subscribe(targetToObserve).disposed(by: disposedBag)
+
+                
+                // test emit
+                let emitObserver = scheduler
+                    .createColdObservable([.next(100, IndexPath(item: 1, section: 0)),
+                                           .next(200, IndexPath(item: 3, section: 0)),
+                                           .next(300, IndexPath(item: 2, section: 0))
+                                        ])
+
+                emitObserver.subscribe(onNext: { [weak self] event in
+                    guard let self = self else {
+                        XCTFail("self reference is missing")
+                        return
+                    }
+                    
+                    self.tableNode.delegate?.tableNode?(self.tableNode, didHighlightRowAt: event)
+                }).disposed(by: disposedBag)
+
+                scheduler.start()
+
+                XCTAssertEqual(targetToObserve.events, [
+                    .next(100, IndexPath(item: 1, section: 0)),
+                    .next(200, IndexPath(item: 3, section: 0)),
+                    .next(300, IndexPath(item: 2, section: 0))
+                ])
+            }
+        }
+        
+        context("table node did unhighlight row") {
+            it("should be emit expected event and triggered inside reactive wrapper") {
+                let disposedBag = DisposeBag()
+                let scheduler = TestScheduler.init(initialClock: 0)
+
+                let targetToObserve = scheduler.createObserver(IndexPath.self)
+                self.tableNode.rx.didUnhighlightRowAt.subscribe(targetToObserve).disposed(by: disposedBag)
+
+                
+                // test emit
+                let emitObserver = scheduler
+                    .createColdObservable([.next(100, IndexPath(item: 1, section: 0)),
+                                           .next(200, IndexPath(item: 3, section: 0)),
+                                           .next(300, IndexPath(item: 2, section: 0))
+                                        ])
+
+                emitObserver.subscribe(onNext: { [weak self] event in
+                    guard let self = self else {
+                        XCTFail("self reference is missing")
+                        return
+                    }
+                    
+                    self.tableNode.delegate?.tableNode?(self.tableNode, didUnhighlightRowAt: event)
+                }).disposed(by: disposedBag)
+
+                scheduler.start()
+
+                XCTAssertEqual(targetToObserve.events, [
+                    .next(100, IndexPath(item: 1, section: 0)),
+                    .next(200, IndexPath(item: 3, section: 0)),
+                    .next(300, IndexPath(item: 2, section: 0))
+                ])
+            }
+        }
+        
+        context("table node will begin batch fetch") {
+            it("should be emit expected event and triggered inside reactive wrapper") {
+                let disposedBag = DisposeBag()
+                let scheduler = TestScheduler.init(initialClock: 0)
+
+                let targetToObserve = scheduler.createObserver(ASBatchContext.self)
+                self.tableNode.rx.willBeginBatchFetch.subscribe(targetToObserve).disposed(by: disposedBag)
+
+                let batchContext = ASBatchContext()
+                
+                // test emit
+                let emitObserver = scheduler
+                    .createColdObservable([.next(100, batchContext)])
+
+                emitObserver.subscribe(onNext: { [weak self] event in
+                    guard let self = self else {
+                        XCTFail("self reference is missing")
+                        return
+                    }
+                    
+                    self.tableNode.delegate?.tableNode?(self.tableNode, willBeginBatchFetchWith: event)
+                }).disposed(by: disposedBag)
+
+                scheduler.start()
+
+                XCTAssertEqual(targetToObserve.events, [
+                    .next(100, batchContext)
+                ])
+            }
         }
     }
 }
@@ -119,10 +290,12 @@ extension ASTableNode_RxExtensionSpec: ASTableDataSource {
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-        let cell = cellNodes[indexPath.row]
         
-        return { [cell] in
-            return cell
+        return {
+           let node = ASCellNode()
+            node.accessibilityIdentifier = "\(indexPath.row)"
+           
+           return node
         }
     }
 }

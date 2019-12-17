@@ -20,6 +20,7 @@ class ASDisplayNode_RxExtensionSpec: QuickSpec {
             let node1 = ASDisplayNode()
             let node2 = ASDisplayNode()
             let node3 = ASDisplayNode()
+            let node4 = ASDisplayNode()
             
             beforeEach {
                 node1.rx.width.onNext(ASDimension(unit: .points, value: 17.0))
@@ -31,6 +32,10 @@ class ASDisplayNode_RxExtensionSpec: QuickSpec {
                 node2.rx.maxHeight.onNext(ASDimension(unit: .points, value: 20.0))
                 
                 node3.rx.preferredSize.onNext(CGSize(width: 40.0, height: 40.0))
+                
+                node4.rx.backgroundColor.onNext(.red)
+                node4.rx.alpha.onNext(0.3)
+                node4.rx.isUserInteractionEnabled.onNext(false)
             }
             
             it("should has correct width") {
@@ -59,6 +64,18 @@ class ASDisplayNode_RxExtensionSpec: QuickSpec {
             
             it("should has correct preferredSize") {
                 expect(node3.style.preferredSize).to(equal(CGSize(width: 40.0, height: 40.0)))
+            }
+            
+            it("should has correct backgroundColor") {
+                expect(node4.backgroundColor).to(equal(.red))
+            }
+            
+            it("should has correct alpha") {
+                expect(node4.alpha).to(equal(0.5))
+            }
+            
+            it("should has correct isUserInteractionEnabled") {
+                expect(node4.isUserInteractionEnabled).to(equal(false))
             }
         }
     }

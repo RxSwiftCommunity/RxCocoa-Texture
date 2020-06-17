@@ -11,6 +11,18 @@ import RxCocoa
 import UIKit
 
 extension Reactive where Base: ASDisplayNode {
+
+    public var alpha: ASBinder<CGFloat> {
+        return ASBinder(self.base) { node, alpha in
+            node.alpha = alpha
+        }
+    }
+
+    public var backgroundColor: ASBinder<UIColor?> {
+        return ASBinder(self.base) { node, backgroundColor in
+            node.backgroundColor = backgroundColor
+        }
+    }
     
     public var didLoad: Observable<Void> {
         
@@ -23,6 +35,12 @@ extension Reactive where Base: ASDisplayNode {
         
         return ASBinder(self.base) { node, isHidden in
             node.isHidden = isHidden
+        }
+    }
+
+    public var isUserInteractionEnabled: ASBinder<Bool> {
+        return ASBinder(self.base) { node, isUserInteractionEnabled in
+            node.isUserInteractionEnabled = isUserInteractionEnabled
         }
     }
     

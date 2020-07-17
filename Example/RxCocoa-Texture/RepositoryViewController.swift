@@ -10,14 +10,14 @@ import AsyncDisplayKit
 import RxSwift
 import RxCocoa
 
-class RepositoryViewController: ASViewController<ASTableNode> {
+class RepositoryViewController: ASDKViewController<ASTableNode> {
     
     private var items: [RepositoryViewModel2] = []
     private var context = ASBatchContext()
     
     let disposeBag = DisposeBag()
     
-    init() {
+    override init() {
         let tableNode = ASTableNode(style: .plain)
         tableNode.backgroundColor = .white
         tableNode.automaticallyManagesSubnodes = true

@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/RxSwiftCommunity/RxCocoa-Texture.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
-  s.swift_version = '5.0'
+  s.swift_version = '5.3'
   s.source_files = 'RxCocoa-Texture/Classes/**/*'
 
   s.dependency 'RxSwift', '~> 5.0'

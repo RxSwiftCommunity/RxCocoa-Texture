@@ -13,7 +13,7 @@ struct RepoProvider {
     private static let repoRelay = BehaviorRelay<[Int: (repo: Repository, count: Int, updatedAt: Date)]>(value: [:])
     private static let repoObservable = repoRelay
         .asObservable()
-        .subscribeOn(SerialDispatchQueueScheduler(queue: queue, internalSerialQueueName: UUID().uuidString))
+        .subscribe(on: SerialDispatchQueueScheduler(queue: queue, internalSerialQueueName: UUID().uuidString))
         .share(replay: 1, scope: .whileConnected)
     private static let queue = DispatchQueue(label: "RepoProvider.RxMVVMTexture.com", qos: .utility)
     

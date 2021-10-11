@@ -21,7 +21,7 @@ extension Reactive where Base: ASEditableTextNode {
             let attrText = editableTextNode?.attributedText
             
             let textChanged: Observable<NSAttributedString?> = editableTextNode?.rx.delegate.methodInvoked(#selector(ASEditableTextNodeDelegate.editableTextNodeDidUpdateText(_:)))
-                .observeOn(MainScheduler.asyncInstance)
+                .observe(on :MainScheduler.asyncInstance)
                 .map { _ in
                     return editableTextNode?.attributedText
                 }

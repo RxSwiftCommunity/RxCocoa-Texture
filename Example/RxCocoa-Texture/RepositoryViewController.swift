@@ -10,14 +10,14 @@ import AsyncDisplayKit
 import RxSwift
 import RxCocoa
 
-class RepositoryViewController: ASViewController<ASTableNode> {
+class RepositoryViewController: ASDKViewController<ASTableNode> {
     
     private var items: [RepositoryViewModel2] = []
     private var context = ASBatchContext()
     
     let disposeBag = DisposeBag()
     
-    init() {
+    override init() {
         let tableNode = ASTableNode(style: .plain)
         tableNode.backgroundColor = .white
         tableNode.automaticallyManagesSubnodes = true
@@ -49,29 +49,28 @@ class RepositoryViewController: ASViewController<ASTableNode> {
     func loadMoreRepo(since: Int?) {
         _ = RepoService.loadRepository(params: [.since(since)])
             .delay(.milliseconds(500), scheduler: MainScheduler.asyncInstance)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .default))
             .map { $0.map { RepositoryViewModel2(repository: $0) } }
-            .observeOn(MainScheduler.instance)
             .subscribe(onSuccess: { [weak self] items in
-                guard let `self` = self else { return }
+              guard let `self` = self else { return }
+              
+              if since == nil {
+                self.items = items
+                self.node.reloadData()
+                self.context.completeBatchFetching(true)
+              } else {
+                // appending is good at table performance
+                let updateIndexPaths = items.enumerated()
+                  .map { offset, _ -> IndexPath in
+                    return IndexPath(row: self.items.count - 1 + offset, section: 0)
+                  }
                 
-                if since == nil {
-                    self.items = items
-                    self.node.reloadData()
-                    self.context.completeBatchFetching(true)
-                } else {
-                    // appending is good at table performance
-                    let updateIndexPaths = items.enumerated()
-                        .map { offset, _ -> IndexPath in
-                            return IndexPath(row: self.items.count - 1 + offset, section: 0)
-                    }
-                    
-                    self.items.append(contentsOf: items)
-                    self.node.insertRows(at: updateIndexPaths,
-                                         with: .fade)
-                    self.context.completeBatchFetching(true)
-                }
-            }, onError: { [weak self] error in
+                self.items.append(contentsOf: items)
+                self.node.insertRows(at: updateIndexPaths,
+                                     with: .fade)
+                self.context.completeBatchFetching(true)
+              }
+            }, onFailure: { [weak self] error in
                 guard let `self` = self else { return }
                 self.context.completeBatchFetching(true)
         })
